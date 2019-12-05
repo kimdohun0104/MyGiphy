@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -20,6 +22,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -40,6 +45,10 @@ dependencies {
 
     // ui
     implementation dependencies.constraintLayout
+
+    // lifecycle
+    implementation dependencies.lifecycleExt
+    kapt dependencies.lifecycleCompiler
 
     // testing
     testImplementation testDependencies.junit
