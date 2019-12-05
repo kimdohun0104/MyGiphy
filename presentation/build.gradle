@@ -50,6 +50,10 @@ dependencies {
     implementation dependencies.lifecycleExt
     kapt dependencies.lifecycleCompiler
 
+    // rxJava
+    implementation dependencies.rxJava
+    implementation dependencies.rxAndroid
+
     // testing
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.junitExt
