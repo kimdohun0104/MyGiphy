@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.dsm.mygiphy"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    def dependencies = rootProject.ext.presentationDependencies
+    def testDependencies = rootProject.ext.presentationTestDependencies
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':data')
+    implementation project(path: ':domain')
+
+    // kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // android
+    implementation dependencies.appcompat
+    implementation dependencies.coreKtx
+
+    // ui
+    implementation dependencies.constraintLayout
+
+    // lifecycle
+    implementation dependencies.lifecycleExt
+    kapt dependencies.lifecycleCompiler
+
+    // rxJava
+    implementation dependencies.rxJava
+    implementation dependencies.rxAndroid
+
+    // testing
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.junitExt
+}
