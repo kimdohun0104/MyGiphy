@@ -1,0 +1,25 @@
+ext {
+    // library
+    androidxVersion = '1.1.0'
+    constraintLayoutVersion = '1.1.3'
+
+    // testing
+    junitVersion = '4.12'
+    junitExtVersion = '1.1.1'
+
+    presentationDependencies = [
+            appcompat: "androidx.appcompat:appcompat:$androidxVersion",
+            coreKtx: "androidx.core:core-ktx:$androidxVersion",
+            constraintLayout: "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    ]
+
+    dataDependencies = [
+            appcompat: "androidx.appcompat:appcompat:$androidxVersion",
+            coreKtx: "androidx.core:core-ktx:$androidxVersion"
+    ]
+
+    presentationTestDependencies = [
+            junit: "junit:junit:$junitVersion",
+            junitExt: "androidx.test.ext:junit:$junitExtVersion"
+    ]
+}
