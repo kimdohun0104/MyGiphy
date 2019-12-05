@@ -5,6 +5,9 @@ ext {
     rxJavaVersion = '2.2.15'
     rxAndroidVersion = '2.1.1'
     lifecycleVersion = '2.0.0'
+    retrofitVersion = '2.6.2'
+    okhttpVersion = '4.2.2'
+    roomVersion = '2.2.0-beta01'
 
     // testing
     junitVersion = '4.12'
@@ -17,12 +20,21 @@ ext {
             lifecycleExt: "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
             lifecycleCompiler: "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion",
             rxJava: "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
-            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitGson: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            okhttp: "com.squareup.okhttp3:okhttp:$okhttpVersion",
+            okhttpLogging: "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
     ]
 
     dataDependencies = [
             appcompat: "androidx.appcompat:appcompat:$androidxVersion",
-            coreKtx: "androidx.core:core-ktx:$androidxVersion"
+            coreKtx: "androidx.core:core-ktx:$androidxVersion",
+            retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitGson: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            roomRuntime: "androidx.room:room-runtime:$roomVersion",
+            rxJava: "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     ]
 
     domainDependencies = [

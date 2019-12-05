@@ -38,4 +38,14 @@ dependencies {
     implementation dataDependencies.appcompat
     implementation dataDependencies.coreKtx
 
+    // retrofit
+    implementation dataDependencies.retrofit
+    implementation dataDependencies.retrofitGson
+
+    // room
+    implementation dataDependencies.roomRuntime
+
+    // rxJava
+    implementation dataDependencies.rxJava
+    implementation dataDependencies.rxAndroid
 }

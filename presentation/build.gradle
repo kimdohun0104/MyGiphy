@@ -54,6 +54,14 @@ dependencies {
     implementation dependencies.rxJava
     implementation dependencies.rxAndroid
 
+    // retrofit
+    implementation dependencies.retrofit
+    implementation dependencies.retrofitGson
+
+    // okhttp
+    implementation dependencies.okhttp
+    implementation dependencies.okhttpLogging
+
     // testing
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.junitExt
