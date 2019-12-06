@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyGiphy</string>
+
+    <string name="fail_internal">네트워크 상태를 확인해주세요</string>
+
+    <string name="retry">재시도</string>
 </resources>

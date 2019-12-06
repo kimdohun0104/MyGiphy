@@ -1,6 +1,6 @@
-package com.dsm.domain.entity
+package com.dsm.mygiphy.presentation.model
 
-data class GifEntity(
+data class GifModel(
 
     val id: String,
 

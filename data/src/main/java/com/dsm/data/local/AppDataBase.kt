@@ -9,7 +9,7 @@ import com.dsm.data.local.entity.GifRoomData
 @Database(
     entities = [
         GifRoomData::class
-    ], version = 0
+    ], version = 1
 )
 @TypeConverters(Converters::class)
 abstract class AppDataBase : RoomDatabase() {

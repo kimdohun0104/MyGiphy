@@ -13,11 +13,11 @@ class TrendDataSourceImpl(
     private val gifDao: GifDao
 ) : TrendDataSource {
 
-    override fun getRemoteTrendList(page: Int, pageSize: Int): Flowable<GifListData> =
-        giphyApi.getTrendGifs(page, pageSize).addSchedulers()
+    override fun getRemoteTrendList(page: Int): Flowable<GifListData> =
+        giphyApi.getTrendGifs(page).addSchedulers()
 
-    override fun getLocalTrendList(page: Int, pageSize: Int): List<GifRoomData>? =
-        gifDao.getTrendList(page, pageSize)
+    override fun getLocalTrendList(page: Int): List<GifRoomData>? =
+        gifDao.getTrendList(page)
 
     override fun saveTrendList(gifRoomDataList: List<GifRoomData>): Completable =
         gifDao.saveTrendList(gifRoomDataList)

@@ -7,9 +7,9 @@ import io.reactivex.Flowable
 
 interface TrendDataSource {
 
-    fun getRemoteTrendList(page: Int, pageSize: Int): Flowable<GifListData>
+    fun getRemoteTrendList(page: Int): Flowable<GifListData>
 
-    fun getLocalTrendList(page: Int, pageSize: Int): List<GifRoomData>?
+    fun getLocalTrendList(page: Int): List<GifRoomData>?
 
     fun saveTrendList(gifRoomDataList: List<GifRoomData>): Completable
 }

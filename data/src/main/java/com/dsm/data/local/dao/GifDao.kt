@@ -13,6 +13,6 @@ interface GifDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveTrendList(gifList: List<GifRoomData>): Completable
 
-    @Query("SELECT * FROM GifRoomData LIMIT :pageSize OFFSET :page")
-    fun getTrendList(page: Int, pageSize: Int): List<GifRoomData>?
+    @Query("SELECT * FROM GifRoomData LIMIT 25 OFFSET :page")
+    fun getTrendList(page: Int): List<GifRoomData>?
 }

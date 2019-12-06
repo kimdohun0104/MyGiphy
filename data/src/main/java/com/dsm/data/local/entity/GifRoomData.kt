@@ -9,5 +9,9 @@ data class GifRoomData(
     @PrimaryKey
     val id: String,
 
-    val gifUrl: String
+    val gifUrl: String,
+
+    val width: Int,
+
+    val height: Int
 )

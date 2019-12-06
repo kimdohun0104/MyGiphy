@@ -8,6 +8,11 @@ ext {
     retrofitVersion = '2.6.2'
     okhttpVersion = '4.2.2'
     roomVersion = '2.2.0-beta01'
+    pagingVersion = '2.1.0'
+    koinVersion = '2.0.1'
+    glideVersion = '4.10.0'
+    ankoVersion = '0.10.8'
+    materialVersion = '1.0.0'
 
     // testing
     junitVersion = '4.12'
@@ -23,8 +28,19 @@ ext {
             rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
             retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion",
             retrofitGson: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            retrofitRxJava: "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
             okhttp: "com.squareup.okhttp3:okhttp:$okhttpVersion",
-            okhttpLogging: "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+            okhttpLogging: "com.squareup.okhttp3:logging-interceptor:$okhttpVersion",
+            paging: "androidx.paging:paging-runtime:$pagingVersion",
+            koin: "org.koin:koin-android:$koinVersion",
+            koinViewModel: "org.koin:koin-androidx-viewmodel:$koinVersion",
+            roomRuntime: "androidx.room:room-runtime:$roomVersion",
+            roomRxJava: "androidx.room:room-rxjava2:$roomVersion",
+            roomCompiler: "androidx.room:room-compiler:$roomVersion",
+            glide: "com.github.bumptech.glide:glide:$glideVersion",
+            glideCompiler: "com.github.bumptech.glide:compiler:$glideVersion",
+            anko: "org.jetbrains.anko:anko-commons:$ankoVersion",
+            material: "com.google.android.material:material:$materialVersion"
     ]
 
     dataDependencies = [
@@ -33,6 +49,7 @@ ext {
             retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion",
             retrofitGson: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
             roomRuntime: "androidx.room:room-runtime:$roomVersion",
+            roomCompiler: "androidx.room:room-compiler:$roomVersion",
             rxJava: "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
             rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     ]

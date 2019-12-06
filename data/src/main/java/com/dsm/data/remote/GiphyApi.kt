@@ -9,8 +9,7 @@ interface GiphyApi {
 
     @GET("v1/gifs/trending")
     fun getTrendGifs(
-        @Query("offset") page: Int,
-        @Query("limit") pageSize: Int
+        @Query("offset") page: Int
     ): Flowable<GifListData>
 
 }

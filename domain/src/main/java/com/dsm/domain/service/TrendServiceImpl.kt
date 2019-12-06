@@ -12,9 +12,8 @@ class TrendServiceImpl(
     private val errorHandler: ErrorHandler
 ) : TrendService {
 
-    override fun getTrendList(page: Int, pageSize: Int): Flowable<Resource<List<GifEntity>>> =
-        repository.getRemoteTrendList(page, pageSize)
+    override fun getTrendList(page: Int): Flowable<Resource<List<GifEntity>>> =
+        repository.getRemoteTrendList(page)
             .doOnNext { repository.saveTrendList(it).subscribe() }
-            .toResource(errorHandler, repository.getLocalTrendList(page, pageSize))
-
+            .toResource(errorHandler, repository.getLocalTrendList(page))
 }
