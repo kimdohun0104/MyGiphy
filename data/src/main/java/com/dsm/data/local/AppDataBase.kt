@@ -2,15 +2,15 @@ package com.dsm.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.dsm.data.local.dao.GifDao
-import com.dsm.data.local.entity.GifRoomData
+import com.dsm.data.local.dao.GifDetailDao
+import com.dsm.data.local.entity.GifDetailRoomData
 
 @Database(
     entities = [
-        GifRoomData::class
-    ], version = 1
+        GifDetailRoomData::class
+    ], version = 2
 )
 abstract class AppDataBase : RoomDatabase() {
 
-    abstract fun gifDao(): GifDao
+    abstract fun gifDetailDao(): GifDetailDao
 }

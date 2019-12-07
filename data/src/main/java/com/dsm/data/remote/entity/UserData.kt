@@ -8,5 +8,8 @@ data class UserData(
     val avatarUrl: String,
 
     @SerializedName("display_name")
-    val displayName: String
+    val displayName: String,
+
+    @SerializedName("username")
+    val userName: String
 )

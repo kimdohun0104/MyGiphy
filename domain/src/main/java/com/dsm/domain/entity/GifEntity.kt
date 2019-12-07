@@ -6,7 +6,5 @@ data class GifEntity(
 
     val gifUrl: String,
 
-    val width: Int,
-
     val height: Int
 )
