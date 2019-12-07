@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="guild_line_18dp">18dp</dimen>
+
+    <dimen name="size_text_big_24sp">24sp</dimen>
+    <dimen name="size_text_medium_18sp">18sp</dimen>
+    <dimen name="size_text_small_12sp">12sp</dimen>
+</resources>

@@ -45,6 +45,7 @@ dependencies {
 
     // ui
     implementation dependencies.constraintLayout
+    implementation dependencies.material
 
     // lifecycle
     implementation dependencies.lifecycleExt
@@ -54,7 +55,39 @@ dependencies {
     implementation dependencies.rxJava
     implementation dependencies.rxAndroid
 
+    // retrofit
+    implementation dependencies.retrofit
+    implementation dependencies.retrofitGson
+    implementation dependencies.retrofitRxJava
+
+    // okhttp
+    implementation dependencies.okhttp
+    implementation dependencies.okhttpLogging
+
+    // paging
+    implementation dependencies.paging
+
+    // koin
+    implementation dependencies.koin
+    implementation dependencies.koinViewModel
+
+    // room
+    implementation dependencies.roomRuntime
+    implementation dependencies.roomRxJava
+    kapt dependencies.roomCompiler
+
+    // glide
+    implementation dependencies.glide
+    kapt dependencies.glideCompiler
+
+    // anko
+    implementation dependencies.anko
+
     // testing
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.junitExt
+//    androidTestImplementation testDependencies.mockitoAndroid
+//    testImplementation testDependencies.coreTesting
+//    testImplementation testDependencies.liveDataTesting
+//    testImplementation testDependencies.mockitoInline
 }
