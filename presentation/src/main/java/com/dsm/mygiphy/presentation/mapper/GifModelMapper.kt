@@ -8,7 +8,6 @@ class GifModelMapper : Mapper<GifEntity, GifModel> {
     override fun mapFrom(from: GifEntity) = GifModel(
         id = from.id,
         gifUrl = from.gifUrl,
-        width = from.width,
         height = from.height
     )
 

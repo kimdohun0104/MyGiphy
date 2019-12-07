@@ -6,7 +6,5 @@ data class GifModel(
 
     val gifUrl: String,
 
-    val width: Int,
-
     val height: Int
 )

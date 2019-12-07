@@ -75,7 +75,6 @@ dependencies {
 
     // room
     implementation dependencies.roomRuntime
-    implementation dependencies.roomRxJava
     kapt dependencies.roomCompiler
 
     // glide
@@ -88,8 +87,8 @@ dependencies {
     // testing
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.junitExt
-//    androidTestImplementation testDependencies.mockitoAndroid
-//    testImplementation testDependencies.coreTesting
-//    testImplementation testDependencies.liveDataTesting
-//    testImplementation testDependencies.mockitoInline
+    androidTestImplementation testDependencies.mockitoAndroid
+    testImplementation testDependencies.coreTesting
+    testImplementation testDependencies.liveDataTesting
+    testImplementation testDependencies.mockitoInline
 }

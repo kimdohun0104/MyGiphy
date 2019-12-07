@@ -6,7 +6,7 @@ import io.reactivex.Flowable
 
 interface DetailRepository {
 
-    fun getRemoteGifDetail(gifId: String): Flowable<GifDetailEntity>
+    fun getRemoteGifDetail(gifId: String, isFavorite: Boolean): Flowable<GifDetailEntity>
 
     fun getLocalGifDetail(gifId: String): GifDetailEntity?
 

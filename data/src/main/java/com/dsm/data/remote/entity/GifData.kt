@@ -9,5 +9,5 @@ data class GifData(
     @SerializedName("images")
     val imageData: ImagesData,
 
-    val user: UserData
+    val user: UserData?
 )

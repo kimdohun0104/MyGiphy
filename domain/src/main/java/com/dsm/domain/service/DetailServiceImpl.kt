@@ -14,7 +14,7 @@ class DetailServiceImpl(
 ) : DetailService {
 
     override fun getGifDetail(gifId: String): Flowable<Resource<GifDetailEntity>> =
-        repository.getRemoteGifDetail(gifId)
+        repository.getRemoteGifDetail(gifId, repository.isFavoriteGif(gifId))
             .doOnNext { repository.saveGifDetail(it, repository.isFavoriteGif(gifId)).subscribe() }
             .toResource(errorHandler, repository.getLocalGifDetail(gifId))
 

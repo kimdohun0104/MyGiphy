@@ -2,30 +2,29 @@ package com.dsm.data.dataSource.detail
 
 import com.dsm.data.addSchedulers
 import com.dsm.data.local.dao.GifDetailDao
-import com.dsm.data.local.entity.GifDetailRoomData
 import com.dsm.data.remote.GiphyApi
-import com.dsm.data.remote.entity.GifData
+import com.dsm.data.remote.entity.SingleGifData
 import io.reactivex.Completable
 import io.reactivex.Flowable
 
 class DetailDataSourceImpl(
     private val giphyApi: GiphyApi,
-    private val gifDetailDao: GifDetailDao
+    private val gifDao: GifDetailDao
 ) : DetailDataSource {
 
-    override fun getRemoteGifDetail(gifId: String): Flowable<GifData> =
+    override fun getRemoteGifDetail(gifId: String): Flowable<SingleGifData> =
         giphyApi.getGifDetail(gifId).addSchedulers()
 
-    override fun getLocalGifDetail(gifId: String): GifDetailRoomData? =
-        gifDetailDao.getGifDetail(gifId)
+    override fun getLocalGifDetail(gifId: String): com.dsm.data.local.entity.GifDetailRoomEntity? =
+        gifDao.getGifDetail(gifId)
 
-    override fun saveGifDetail(gifDetailRoomData: GifDetailRoomData): Completable =
-        gifDetailDao.saveGifDetail(gifDetailRoomData)
+    override fun saveGifDetail(gifDao: com.dsm.data.local.entity.GifDetailRoomEntity): Completable =
+        this.gifDao.saveGifDetail(gifDao)
 
     override fun isFavoriteGif(gifId: String): Boolean =
-        gifDetailDao.isFavoriteGif(gifId)
+        gifDao.isFavoriteGif(gifId)
 
     override fun setFavorite(gifId: String, isFavorite: Boolean): Completable =
-        gifDetailDao.setFavorite(gifId, isFavorite)
+        gifDao.setFavorite(gifId, isFavorite)
 
 }

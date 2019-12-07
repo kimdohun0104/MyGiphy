@@ -45,6 +45,7 @@ dependencies {
 
     // room
     implementation dataDependencies.roomRuntime
+    implementation dataDependencies.roomRxJava
     kapt dataDependencies.roomCompiler
 
     // rxJava

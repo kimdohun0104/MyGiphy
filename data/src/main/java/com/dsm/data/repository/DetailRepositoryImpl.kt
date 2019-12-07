@@ -12,8 +12,8 @@ class DetailRepositoryImpl(
     private val gifDetailEntityMapper: GifDetailEntityMapper
 ) : DetailRepository {
 
-    override fun getRemoteGifDetail(gifId: String): Flowable<GifDetailEntity> =
-        dataSource.getRemoteGifDetail(gifId).map(gifDetailEntityMapper::mapFrom)
+    override fun getRemoteGifDetail(gifId: String, isFavorite: Boolean): Flowable<GifDetailEntity> =
+        dataSource.getRemoteGifDetail(gifId).map { gifDetailEntityMapper.mapFrom(it.gifData, isFavorite) }
 
     override fun getLocalGifDetail(gifId: String): GifDetailEntity? =
         gifDetailEntityMapper.mapFrom(dataSource.getLocalGifDetail(gifId))

@@ -4,21 +4,21 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.dsm.data.local.entity.GifDetailRoomData
+import com.dsm.data.local.entity.GifDetailRoomEntity
 import io.reactivex.Completable
 
 @Dao
 interface GifDetailDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveGifDetail(gifDetailRoomData: GifDetailRoomData): Completable
+    fun saveGifDetail(gifDao: GifDetailRoomEntity): Completable
 
-    @Query("SELECT * FROM GifDetailRoomData WHERE id = :gifId")
-    fun getGifDetail(gifId: String): GifDetailRoomData
+    @Query("SELECT * FROM GifDetailRoomEntity WHERE id = :gifId")
+    fun getGifDetail(gifId: String): GifDetailRoomEntity
 
-    @Query("UPDATE GifDetailRoomData SET isFavorite = :isFavorite WHERE id = :gifId")
+    @Query("UPDATE GifDetailRoomEntity SET isFavorite = :isFavorite WHERE id = :gifId")
     fun setFavorite(gifId: String, isFavorite: Boolean): Completable
 
-    @Query("SELECT isFavorite FROM GifDetailRoomData WHERE id = :gifId")
+    @Query("SELECT isFavorite FROM GifDetailRoomEntity WHERE id = :gifId")
     fun isFavoriteGif(gifId: String): Boolean
 }

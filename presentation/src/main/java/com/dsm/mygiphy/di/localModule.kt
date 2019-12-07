@@ -11,5 +11,5 @@ val localModule = module {
             .build()
     }
 
-    factory { get<AppDataBase>().gifDao() }
+    factory { get<AppDataBase>().gifDetailDao() }
 }
