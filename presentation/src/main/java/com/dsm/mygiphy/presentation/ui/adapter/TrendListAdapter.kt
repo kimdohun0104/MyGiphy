@@ -3,6 +3,7 @@ package com.dsm.mygiphy.presentation.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -67,6 +68,7 @@ class TrendListAdapter : PagedListAdapter<GifModel, RecyclerView.ViewHolder>(DIF
     inner class TrendHolder(private val binding: ItemGifBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: GifModel?) {
             binding.gifUrl = item?.gifUrl
+            binding.ivGif.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, ((item?.height ?: 200) * 2.7).toInt())
         }
     }
 

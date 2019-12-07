@@ -1,7 +1,9 @@
 package com.dsm.mygiphy.presentation.ui.trend
 
+import android.content.res.Configuration
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.dsm.mygiphy.R
 import com.dsm.mygiphy.databinding.ActivityTrendBinding
 import com.dsm.mygiphy.presentation.base.BaseActivity
@@ -22,14 +24,15 @@ class TrendActivity : BaseActivity<ActivityTrendBinding>() {
 
     override fun viewInit() {
         rv_trend.adapter = adapter
+        (rv_trend.layoutManager as StaggeredGridLayoutManager).spanCount =
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 2 else 4
     }
 
     override fun observeViewModel() {
         viewModel.networkState.observe(this, Observer {
             adapter.setNetworkState(it)
-            pb_trend_loading.visibility = View.GONE
-            if (it == NetworkState.FAILED || it == NetworkState.LOCAL)
-                retrySnackbar(ll_trend_parent) { viewModel.refreshTrendList() }
+            if (it != NetworkState.LOADING) pb_trend_loading.visibility = View.GONE
+            else if (it == NetworkState.FAILED) retrySnackbar(cl_trend_parent) { viewModel.refreshTrendList() }
         })
 
         viewModel.trendPagedList.observe(this, Observer { adapter.submitList(it) })

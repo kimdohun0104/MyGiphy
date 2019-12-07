@@ -12,7 +12,7 @@ ext {
     koinVersion = '2.0.1'
     glideVersion = '4.10.0'
     ankoVersion = '0.10.8'
-    materialVersion = '1.0.0'
+    materialVersion = '1.1.0-beta02'
 
     // testing
     junitVersion = '4.12'

@@ -86,4 +86,8 @@ dependencies {
     // testing
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.junitExt
+//    androidTestImplementation testDependencies.mockitoAndroid
+//    testImplementation testDependencies.coreTesting
+//    testImplementation testDependencies.liveDataTesting
+//    testImplementation testDependencies.mockitoInline
 }
