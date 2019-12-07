@@ -7,5 +7,7 @@ data class GifData(
     val id: String,
 
     @SerializedName("images")
-    val imageData: ImagesData
+    val imageData: ImagesData,
+
+    val user: UserData
 )

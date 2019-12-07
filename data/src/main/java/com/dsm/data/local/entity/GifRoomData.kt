@@ -13,5 +13,11 @@ data class GifRoomData(
 
     val width: Int,
 
-    val height: Int
+    val height: Int,
+
+    val avatarUrl: String,
+
+    val displayName: String,
+
+    val isFavorite: Boolean
 )

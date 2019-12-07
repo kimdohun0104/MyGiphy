@@ -11,8 +11,11 @@ import io.reactivex.Completable
 interface GifDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveTrendList(gifList: List<GifRoomData>): Completable
+    fun saveGifDetail(gifRoomData: GifRoomData): Completable
 
     @Query("SELECT * FROM GifRoomData LIMIT 25 OFFSET :page")
     fun getTrendList(page: Int): List<GifRoomData>?
+
+    @Query("SELECT * FROM GifRoomData WHERE id = :gifId")
+    fun getGifDetail(gifId: String): GifRoomData
 }
