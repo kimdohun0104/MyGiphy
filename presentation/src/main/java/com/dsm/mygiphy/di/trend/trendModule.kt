@@ -15,7 +15,7 @@ import org.koin.dsl.module
 
 val trendModule = module {
 
-    factory<TrendDataSource> { TrendDataSourceImpl(get()) }
+    factory<TrendDataSource> { TrendDataSourceImpl(get(), get()) }
 
     factory { GifEntityMapper() }
 

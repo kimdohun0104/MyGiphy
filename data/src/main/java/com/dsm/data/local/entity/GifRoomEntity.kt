@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class GifDetailRoomEntity(
+data class GifRoomEntity(
 
     @PrimaryKey
     val id: String,
@@ -17,5 +17,5 @@ data class GifDetailRoomEntity(
 
     val userName: String,
 
-    val isFavorite: Boolean
+    val height: Int
 )

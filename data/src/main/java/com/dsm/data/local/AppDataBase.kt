@@ -2,15 +2,17 @@ package com.dsm.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.dsm.data.local.dao.GifDetailDao
-import com.dsm.data.local.entity.GifDetailRoomEntity
+import androidx.room.TypeConverters
+import com.dsm.data.local.dao.GifDao
+import com.dsm.data.local.entity.GifRoomEntity
 
 @Database(
     entities = [
-        GifDetailRoomEntity::class
+        GifRoomEntity::class
     ], version = 2
 )
+@TypeConverters(Converters::class)
 abstract class AppDataBase : RoomDatabase() {
 
-    abstract fun gifDetailDao(): GifDetailDao
+    abstract fun gifDao(): GifDao
 }

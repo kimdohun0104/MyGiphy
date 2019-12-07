@@ -72,7 +72,7 @@ class TrendListAdapter : PagedListAdapter<GifModel, RecyclerView.ViewHolder>(DIF
             gifUrl = item?.gifUrl
             ivGif.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, ((item?.height ?: 200) * 2.7).toInt())
             root.setOnClickListener {
-                root.context.startActivity<DetailActivity>("gif_id" to item?.id)
+                root.context.startActivity<DetailActivity>("gif_model" to item)
             }
         }
     }

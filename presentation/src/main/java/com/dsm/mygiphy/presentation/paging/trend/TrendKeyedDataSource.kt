@@ -25,7 +25,8 @@ class TrendKeyedDataSource(
                     when (it) {
                         is Resource.Success -> {
                             callback.onResult(it.data, null, 1)
-                            networkState.postValue(NetworkState.LOADED)
+                            if (it.isLocal) networkState.postValue(NetworkState.LOCAL)
+                            else networkState.postValue(NetworkState.LOADED)
                         }
                         is Resource.Error -> networkState.postValue(NetworkState.FAILED)
                     }
@@ -42,7 +43,8 @@ class TrendKeyedDataSource(
                     when (it) {
                         is Resource.Success -> {
                             callback.onResult(it.data, params.key + 1)
-                            networkState.postValue(NetworkState.LOADED)
+                            if (it.isLocal) networkState.postValue(NetworkState.LOCAL)
+                            else networkState.postValue(NetworkState.LOADED)
                         }
                         is Resource.Error -> networkState.postValue(NetworkState.FAILED)
                     }

@@ -31,7 +31,13 @@ class TrendActivity : BaseActivity<ActivityTrendBinding>() {
     override fun observeViewModel() {
         viewModel.networkState.observe(this, Observer {
             adapter.setNetworkState(it)
-            if (it == NetworkState.FAILED) retrySnackbar(cl_trend_parent) { viewModel.refreshTrendList() }
+
+            if (it == NetworkState.FAILED || it == NetworkState.LOCAL)
+                retrySnackbar(cl_trend_parent) {
+                    viewModel.refreshTrendList()
+                    pb_trend_loading.visibility = View.VISIBLE
+                }
+
             if (it != NetworkState.LOADING) pb_trend_loading.visibility = View.GONE
         })
 

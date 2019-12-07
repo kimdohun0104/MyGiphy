@@ -6,5 +6,11 @@ data class GifEntity(
 
     val gifUrl: String,
 
-    val height: Int
+    val height: Int,
+
+    val avatarUrl: String,
+
+    val displayName: String,
+
+    val userName: String
 )
