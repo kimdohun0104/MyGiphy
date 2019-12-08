@@ -20,7 +20,7 @@ class TrendActivity : BaseActivity<ActivityTrendBinding>() {
 
     private val viewModel: TrendViewModel by viewModel()
 
-    private val adapter = TrendListAdapter()
+    private val adapter: TrendListAdapter by lazy { TrendListAdapter() }
 
     override fun viewInit() {
         rv_trend.adapter = adapter

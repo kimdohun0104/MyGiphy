@@ -2,8 +2,6 @@ package com.dsm.mygiphy.presentation.util
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
-import com.dsm.mygiphy.R
 
 object BindingUtil {
 
@@ -11,10 +9,7 @@ object BindingUtil {
     @BindingAdapter("gifUrl")
     fun bindGifUrl(view: ImageView, gifUrl: String?) {
         gifUrl?.let {
-            Glide.with(view).asGif()
-                .load(it)
-                .placeholder(R.mipmap.ic_launcher)
-                .into(view)
+            GlideApp.with(view).load(it).into(view)
         }
     }
 
@@ -22,10 +17,7 @@ object BindingUtil {
     @BindingAdapter("imageUrl")
     fun bindImageUrl(view: ImageView, imageUrl: String?) {
         imageUrl?.let {
-            Glide.with(view)
-                .load(it)
-                .placeholder(R.mipmap.ic_launcher)
-                .into(view)
+            GlideApp.with(view).load(it).into(view)
         }
     }
 }

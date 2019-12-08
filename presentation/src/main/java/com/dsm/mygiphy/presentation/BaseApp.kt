@@ -2,6 +2,7 @@ package com.dsm.mygiphy.presentation
 
 import android.app.Application
 import com.dsm.mygiphy.di.appModule
+import com.dsm.mygiphy.di.detail.detailModule
 import com.dsm.mygiphy.di.localModule
 import com.dsm.mygiphy.di.networkModule
 import com.dsm.mygiphy.di.trend.trendModule
@@ -21,8 +22,10 @@ class BaseApp : Application() {
                 listOf(
                     localModule,
                     networkModule,
+                    appModule,
+
                     trendModule,
-                    appModule
+                    detailModule
                 )
             )
         }
