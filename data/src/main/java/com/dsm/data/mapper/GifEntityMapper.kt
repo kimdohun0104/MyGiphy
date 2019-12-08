@@ -30,6 +30,7 @@ class GifEntityMapper : Mapper<GifData, GifEntity> {
         gifUrl = from.gifUrl,
         displayName = from.displayName,
         userName = from.userName,
-        avatarUrl = from.avatarUrl
+        avatarUrl = from.avatarUrl,
+        isFavorite = false
     )
 }

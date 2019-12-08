@@ -5,6 +5,10 @@
         <variable
             name="gifModel"
             type="com.dsm.mygiphy.presentation.model.GifModel" />
+
+        <variable
+            name="isFavorite"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -96,7 +100,8 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             app:layout_constraintBottom_toBottomOf="@id/iv_detail_user"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_detail_user" />
+            app:layout_constraintTop_toTopOf="@id/iv_detail_user"
+            android:src="@{isFavorite ? @drawable/ic_favorite_red_24dp : @drawable/ic_favorite_border_red_24dp}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

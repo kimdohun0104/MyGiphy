@@ -17,5 +17,7 @@ data class GifRoomEntity(
 
     val userName: String,
 
-    val height: Int
+    val height: Int,
+
+    val isFavorite: Boolean
 )
