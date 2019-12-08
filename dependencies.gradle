@@ -17,6 +17,11 @@ ext {
     // testing
     junitVersion = '4.12'
     junitExtVersion = '1.1.1'
+    mockitoCoreVersion = '2.23.4'
+    coreTestingVersion = '1.1.1'
+    mockitoAndroidVersion = '2.6.3'
+    mockitoInlineVersion = '2.13.0'
+    liveDataTestingVersion = '1.1.0'
 
     presentationDependencies = [
             appcompat: "androidx.appcompat:appcompat:$androidxVersion",
@@ -35,7 +40,6 @@ ext {
             koin: "org.koin:koin-android:$koinVersion",
             koinViewModel: "org.koin:koin-androidx-viewmodel:$koinVersion",
             roomRuntime: "androidx.room:room-runtime:$roomVersion",
-            roomRxJava: "androidx.room:room-rxjava2:$roomVersion",
             roomCompiler: "androidx.room:room-compiler:$roomVersion",
             glide: "com.github.bumptech.glide:glide:$glideVersion",
             glideCompiler: "com.github.bumptech.glide:compiler:$glideVersion",
@@ -50,16 +54,22 @@ ext {
             retrofitGson: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
             roomRuntime: "androidx.room:room-runtime:$roomVersion",
             roomCompiler: "androidx.room:room-compiler:$roomVersion",
+            roomRxJava: "androidx.room:room-rxjava2:$roomVersion",
             rxJava: "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
             rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     ]
 
     domainDependencies = [
-            rxJava: "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+            rxJava: "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion"
     ]
 
     presentationTestDependencies = [
             junit: "junit:junit:$junitVersion",
-            junitExt: "androidx.test.ext:junit:$junitExtVersion"
+            junitExt: "androidx.test.ext:junit:$junitExtVersion",
+            coreTesting: "android.arch.core:core-testing:$coreTestingVersion",
+            mockitoAndroid: "org.mockito:mockito-android:$mockitoAndroidVersion",
+            mockitoInline: "org.mockito:mockito-inline:$mockitoInlineVersion",
+            liveDataTesting: "com.jraska.livedata:testing-ktx:$liveDataTestingVersion",
     ]
 }

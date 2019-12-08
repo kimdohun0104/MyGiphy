@@ -54,6 +54,9 @@ Res 네이밍 규칙은 [[Android] Resources Naming Rule](https://b.jy.is/androi
 <br>
 
 ### 기술 노트
+
+    주요 개발 내용을 정리하는 공간
+
 - 아키텍처 : MVVM, Clean Architecture
     
     My GIPHY의 아키텍쳐는 MVVM과 Clean Architecture를 사용합니다.
@@ -106,6 +109,17 @@ Res 네이밍 규칙은 [[Android] Resources Naming Rule](https://b.jy.is/androi
     3. 결과를 Email로 전송
     
 <br>
+
+- 오프라인 모드
+    
+    My GIPHY는 오프라인 모드를 지원합니다. 한국은 전국 거의 모든 장소에서 네트워크를 사용할 수 있습니다.
+    하지만 다른 일부 나라는 네트워크 상태가 원활하지 못한 경우도 있습니다. 그래서 인터넷이 갑자기 불안정하거나
+    연결하지 않고 앱에 접속하는 경우 Room 데이터베이스에 저장된 데이터를 사용하게 됩니다. 방식은 다음과 같습니다.
+    
+    1. API를 통해서 데이터를 요청
+    2. 만약 성공한다면 그 데이터를 Room을 통해서 저장합니다.
+    3. 이후에 응답을 받을 수 없는 경우에 저장된 데이터를 사용합니다.
+    4. 만약 로컬에서 불러온 데이터라면 사용자에게 SnackBar 노출시켜 재시도를 유됴합니다.
 
 ### 오픈 소스
 

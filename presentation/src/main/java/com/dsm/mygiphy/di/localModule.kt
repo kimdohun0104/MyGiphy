@@ -6,7 +6,7 @@ import org.koin.dsl.module
 
 val localModule = module {
     single {
-        Room.databaseBuilder(get(), AppDataBase::class.java, "gifphy.db")
+        Room.databaseBuilder(get(), AppDataBase::class.java, "giphy.db")
             .allowMainThreadQueries()
             .build()
     }

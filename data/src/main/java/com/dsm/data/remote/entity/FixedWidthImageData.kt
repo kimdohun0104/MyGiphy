@@ -7,7 +7,5 @@ data class FixedWidthImageData(
     @SerializedName("url")
     val gifUrl: String,
 
-    val width: String,
-
     val height: String
 )

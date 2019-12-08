@@ -11,6 +11,9 @@ dependencies {
 
     // rxJava
     implementation domainDependencies.rxJava
+
+    // retrofit
+    implementation domainDependencies.retrofit
 }
 
 sourceCompatibility = "7"

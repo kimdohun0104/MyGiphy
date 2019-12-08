@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="gifModel"
+            type="com.dsm.mygiphy.presentation.model.GifModel" />
+
+        <variable
+            name="isFavorite"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ui.detail.DetailActivity"
+        android:id="@+id/cl_detail_parent">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/ib_detail_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/guild_line_18dp"
+            android:layout_marginLeft="@dimen/guild_line_18dp"
+            android:layout_marginTop="@dimen/guild_line_18dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back_blue_24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gif"
+            android:textColor="@color/colorBlackWhite"
+            android:textSize="@dimen/size_text_big_24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ib_detail_back"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ib_detail_back" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_detail_gif"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ib_detail_back"
+            gifUrl="@{gifModel.gifUrl}"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_detail_user"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/guild_line_18dp"
+            android:layout_marginLeft="@dimen/guild_line_18dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_detail_gif"
+            imageUrl="@{gifModel.avatarUrl}"/>
+
+        <TextView
+            android:id="@+id/tv_detail_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/colorBlackWhite"
+            android:textSize="@dimen/size_text_medium_18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tv_detail_uid"
+            app:layout_constraintLeft_toRightOf="@id/iv_detail_user"
+            app:layout_constraintTop_toTopOf="@id/iv_detail_user"
+            android:text="@{gifModel.displayName}"/>
+
+        <TextView
+            android:id="@+id/tv_detail_uid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlackWhite"
+            android:textSize="@dimen/size_text_small_12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_detail_user"
+            app:layout_constraintLeft_toLeftOf="@id/tv_detail_user"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_user"
+            android:text="@{gifModel.userName}"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_detail_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/guild_line_18dp"
+            android:layout_marginRight="@dimen/guild_line_18dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintBottom_toBottomOf="@id/iv_detail_user"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_detail_user"
+            android:src="@{isFavorite ? @drawable/ic_favorite_red_24dp : @drawable/ic_favorite_border_red_24dp}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

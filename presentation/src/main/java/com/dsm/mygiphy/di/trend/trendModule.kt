@@ -1,8 +1,8 @@
 package com.dsm.mygiphy.di.trend
 
-import com.dsm.data.dataSource.TrendDataSource
-import com.dsm.data.dataSource.TrendDataSourceImpl
-import com.dsm.data.mapper.GifDataMapper
+import com.dsm.data.dataSource.trend.TrendDataSource
+import com.dsm.data.dataSource.trend.TrendDataSourceImpl
+import com.dsm.data.mapper.GifEntityMapper
 import com.dsm.data.repository.TrendRepositoryImpl
 import com.dsm.domain.repository.TrendRepository
 import com.dsm.domain.service.TrendService
@@ -17,7 +17,7 @@ val trendModule = module {
 
     factory<TrendDataSource> { TrendDataSourceImpl(get(), get()) }
 
-    factory { GifDataMapper() }
+    factory { GifEntityMapper() }
 
     factory<TrendRepository> { TrendRepositoryImpl(get(), get()) }
 

@@ -62,7 +62,8 @@
                 android:paddingLeft="@dimen/guild_line_18dp"
                 android:paddingStart="@dimen/guild_line_18dp"
                 tools:ignore="RtlSymmetry"
-                android:textColor="@color/colorTextGrey"/>
+                android:textColor="@color/colorTextGrey"
+                android:gravity="center_vertical"/>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="36dp"

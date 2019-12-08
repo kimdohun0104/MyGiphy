@@ -10,5 +10,5 @@ interface TrendRepository {
 
     fun getLocalTrendList(page: Int): List<GifEntity>?
 
-    fun saveTrendList(gifList: List<GifEntity>): Completable
+    fun saveLocalGifList(gifEntityList: List<GifEntity>): Completable
 }

@@ -4,14 +4,20 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class GifRoomData(
+data class GifRoomEntity(
 
     @PrimaryKey
     val id: String,
 
     val gifUrl: String,
 
-    val width: Int,
+    val avatarUrl: String,
 
-    val height: Int
+    val displayName: String,
+
+    val userName: String,
+
+    val height: Int,
+
+    val isFavorite: Boolean
 )

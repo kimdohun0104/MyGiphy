@@ -8,8 +8,5 @@ import retrofit2.http.Query
 interface GiphyApi {
 
     @GET("v1/gifs/trending")
-    fun getTrendGifs(
-        @Query("offset") page: Int
-    ): Flowable<GifListData>
-
+    fun getTrendGifList(@Query("offset") page: Int): Flowable<GifListData>
 }

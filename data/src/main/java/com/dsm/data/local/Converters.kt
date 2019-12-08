@@ -1,7 +1,7 @@
 package com.dsm.data.local
 
 import androidx.room.TypeConverter
-import com.dsm.data.local.entity.GifRoomData
+import com.dsm.data.local.entity.GifRoomEntity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -9,12 +9,12 @@ object Converters {
 
     @TypeConverter
     @JvmStatic
-    fun fromGifListToString(list: List<GifRoomData>) = Gson().toJson(list)
+    fun GifListToString(list: List<GifRoomEntity>) = Gson().toJson(list)
 
     @TypeConverter
     @JvmStatic
-    fun fromStringToGifList(value: String): List<GifRoomData> {
-        val listType = object: TypeToken<List<GifRoomData>>() {}.type
+    fun stringToGifList(value: String): List<GifRoomEntity> {
+        val listType = object: TypeToken<List<GifRoomEntity>>() {}.type
         return Gson().fromJson(value, listType)
     }
 }

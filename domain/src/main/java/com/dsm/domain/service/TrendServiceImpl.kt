@@ -4,7 +4,6 @@ import com.dsm.domain.entity.GifEntity
 import com.dsm.domain.error.ErrorHandler
 import com.dsm.domain.error.Resource
 import com.dsm.domain.repository.TrendRepository
-import com.dsm.domain.toResource
 import io.reactivex.Flowable
 
 class TrendServiceImpl(
@@ -14,6 +13,12 @@ class TrendServiceImpl(
 
     override fun getTrendList(page: Int): Flowable<Resource<List<GifEntity>>> =
         repository.getRemoteTrendList(page)
-            .doOnNext { repository.saveTrendList(it).subscribe() }
-            .toResource(errorHandler, repository.getLocalTrendList(page))
+            .doOnNext { repository.saveLocalGifList(it).subscribe() }
+            .map<Resource<List<GifEntity>>> { Resource.Success(it) }
+            .onErrorReturn {
+                repository.getLocalTrendList(page)?.let { list ->
+                    return@onErrorReturn Resource.Success(list, true)
+                }
+                Resource.Error(errorHandler.getError(it))
+            }
 }

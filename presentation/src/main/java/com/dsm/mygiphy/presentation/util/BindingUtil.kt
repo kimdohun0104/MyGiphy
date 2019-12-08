@@ -17,4 +17,15 @@ object BindingUtil {
                 .into(view)
         }
     }
+
+    @JvmStatic
+    @BindingAdapter("imageUrl")
+    fun bindImageUrl(view: ImageView, imageUrl: String?) {
+        imageUrl?.let {
+            Glide.with(view)
+                .load(it)
+                .placeholder(R.mipmap.ic_launcher)
+                .into(view)
+        }
+    }
 }
