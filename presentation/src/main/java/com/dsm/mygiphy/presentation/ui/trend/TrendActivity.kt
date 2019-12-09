@@ -25,11 +25,11 @@ class TrendActivity : BaseActivity<ActivityTrendBinding>() {
     private val adapter: TrendListAdapter by lazy { TrendListAdapter() }
 
     override fun viewInit() {
+        ib_trend_favorite.setOnClickListener { startActivity<FavoriteActivity>() }
+
         rv_trend.adapter = adapter
         (rv_trend.layoutManager as StaggeredGridLayoutManager).spanCount =
             if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 2 else 4
-
-        ib_trend_favorite.setOnClickListener { startActivity<FavoriteActivity>() }
     }
 
     override fun observeViewModel() {
