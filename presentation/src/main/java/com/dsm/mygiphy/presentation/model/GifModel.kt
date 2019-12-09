@@ -8,6 +8,8 @@ data class GifModel(
 
     val id: String,
 
+    val slug: String,
+
     val gifUrl: String,
 
     val height: Int,

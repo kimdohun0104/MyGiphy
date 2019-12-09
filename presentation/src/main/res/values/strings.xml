@@ -1,16 +1,23 @@
 <resources>
     <string name="app_name">My GIPHY</string>
 
+    <string name="retry">재시도</string>
+    <string name="gif">GIF</string>
+
+    <!--fail message-->
     <string name="fail_internal">네트워크 상태를 확인해주세요</string>
     <string name="fail_not_found">GIF를 찾을 수 없습니다</string>
 
-    <string name="retry">재시도</string>
-
+    <!--feature:trend-->
     <string name="trend_gif">현재 인기 GIF</string>
-    <string name="search_gif">GIF 검색</string>
-    <string name="gif">GIF</string>
 
+    <!--feature:favorite-->
     <string name="favorite_gif">관심 GIF</string>
     <string name="set_favorite">관심 GIF 등록!</string>
     <string name="set_unfavorite">관심 GIF 해제…</string>
+
+    <!--feature:search-->
+    <string name="search_gif">GIF 검색</string>
+    <string name="search">검색</string>
+    <string name="search_history">검색 기록</string>
 </resources>

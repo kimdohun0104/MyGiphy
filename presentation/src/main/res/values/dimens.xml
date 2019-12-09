@@ -5,4 +5,6 @@
     <dimen name="size_text_big_24sp">24sp</dimen>
     <dimen name="size_text_medium_18sp">18sp</dimen>
     <dimen name="size_text_small_12sp">12sp</dimen>
+
+    <dimen name="height_search_box">36dp</dimen>
 </resources>

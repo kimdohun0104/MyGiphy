@@ -12,7 +12,8 @@ class GifEntityMapper : Mapper<GifData, GifEntity> {
         gifUrl = from.imageData.fixedWidthImageData.gifUrl,
         displayName = from.user?.displayName ?: "",
         userName = from.user?.userName ?: "",
-        avatarUrl = from.user?.avatarUrl ?: ""
+        avatarUrl = from.user?.avatarUrl ?: "",
+        slug = from.slug
     )
 
     fun roomToEntity(from: GifRoomEntity) = GifEntity(
@@ -21,7 +22,8 @@ class GifEntityMapper : Mapper<GifData, GifEntity> {
         userName = from.userName,
         displayName = from.displayName,
         gifUrl = from.gifUrl,
-        height = from.height
+        height = from.height,
+        slug = from.slug
     )
 
     fun entityToRoom(from: GifEntity) = GifRoomEntity(
@@ -31,6 +33,7 @@ class GifEntityMapper : Mapper<GifData, GifEntity> {
         displayName = from.displayName,
         userName = from.userName,
         avatarUrl = from.avatarUrl,
-        isFavorite = false
+        isFavorite = false,
+        slug = from.slug
     )
 }

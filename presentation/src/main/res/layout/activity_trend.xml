@@ -47,7 +47,7 @@
         <LinearLayout
             android:id="@+id/ll_trend_search"
             android:layout_width="0dp"
-            android:layout_height="36dp"
+            android:layout_height="@dimen/height_search_box"
             android:layout_marginTop="6dp"
             android:orientation="horizontal"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -64,7 +64,8 @@
                 android:paddingLeft="@dimen/guild_line_18dp"
                 android:text="@string/search_gif"
                 android:textColor="@color/colorTextGrey"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                android:textSize="@dimen/size_text_small_12sp"/>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="36dp"

@@ -15,7 +15,7 @@ import com.dsm.mygiphy.presentation.paging.NetworkState
 import com.dsm.mygiphy.presentation.ui.detail.DetailActivity
 import org.jetbrains.anko.startActivity
 
-class TrendListAdapter : PagedListAdapter<GifModel, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
+class GifListAdapter : PagedListAdapter<GifModel, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
 
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<GifModel>() {
@@ -70,7 +70,7 @@ class TrendListAdapter : PagedListAdapter<GifModel, RecyclerView.ViewHolder>(DIF
     inner class TrendHolder(private val binding: ItemGifBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: GifModel?) {
             binding.run {
-                item?.let { item ->
+                item?.let {
                     gifModel = item
                     root.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, (item.height * 2.7).toInt())
                     root.setOnClickListener { it.context.startActivity<DetailActivity>("gif_model" to item) }

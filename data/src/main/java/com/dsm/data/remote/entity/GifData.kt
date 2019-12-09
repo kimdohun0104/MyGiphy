@@ -6,6 +6,8 @@ data class GifData(
 
     val id: String,
 
+    val slug: String,
+
     @SerializedName("images")
     val imageData: ImagesData,
 

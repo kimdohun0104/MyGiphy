@@ -7,6 +7,7 @@ import com.dsm.mygiphy.di.favorite.favoriteModule
 import com.dsm.mygiphy.di.localModule
 import com.dsm.mygiphy.di.mapperModule
 import com.dsm.mygiphy.di.networkModule
+import com.dsm.mygiphy.di.search.searchModule
 import com.dsm.mygiphy.di.trend.trendModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -29,7 +30,8 @@ class BaseApp : Application() {
 
                     trendModule,
                     detailModule,
-                    favoriteModule
+                    favoriteModule,
+                    searchModule
                 )
             )
         }

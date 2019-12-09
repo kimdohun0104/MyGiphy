@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.dsm.data.local.entity.GifRoomEntity
+import com.dsm.data.local.entity.SearchHistoryRoomEntity
 import io.reactivex.Completable
 import io.reactivex.Flowable
 
@@ -25,4 +26,13 @@ interface GifDao {
 
     @Query("SELECT * FROM GifRoomEntity WHERE isFavorite = 1")
     fun getFavoriteGifList(): Flowable<List<GifRoomEntity>>
+
+    @Query("SELECT * FROM GifRoomEntity WHERE slug LIKE '%' || :q || '%' LIMIT 25 OFFSET :page")
+    fun searchGifList(page: Int, q: String): List<GifRoomEntity>?
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun saveSearchHistory(searchHistoryRoomEntity: SearchHistoryRoomEntity): Completable
+
+    @Query("SELECT * FROM SearchHistoryRoomEntity")
+    fun getSearchHistoryList(): List<SearchHistoryRoomEntity>
 }

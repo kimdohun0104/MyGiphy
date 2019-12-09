@@ -12,7 +12,8 @@ class GifModelMapper : Mapper<GifEntity, GifModel> {
         height = from.height,
         avatarUrl = from.avatarUrl,
         userName = from.userName,
-        displayName = from.displayName
+        displayName = from.displayName,
+        slug = from.slug
     )
 
     fun roomToModel(from: GifRoomEntity) = GifModel(
@@ -21,6 +22,7 @@ class GifModelMapper : Mapper<GifEntity, GifModel> {
         userName = from.userName,
         avatarUrl = from.avatarUrl,
         gifUrl = from.gifUrl,
-        height = from.height
+        height = from.height,
+        slug = from.slug
     )
 }
