@@ -15,7 +15,9 @@ import com.dsm.mygiphy.presentation.paging.NetworkState
 import com.dsm.mygiphy.presentation.ui.detail.DetailActivity
 import org.jetbrains.anko.startActivity
 
-class GifListAdapter : PagedListAdapter<GifModel, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
+class GifListAdapter(
+    private val increase: Double
+) : PagedListAdapter<GifModel, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
 
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<GifModel>() {
@@ -72,7 +74,7 @@ class GifListAdapter : PagedListAdapter<GifModel, RecyclerView.ViewHolder>(DIFF_
             binding.run {
                 item?.let {
                     gifModel = item
-                    root.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, (item.height * 2.7).toInt())
+                    root.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, (item.height * increase).toInt())
                     root.setOnClickListener { it.context.startActivity<DetailActivity>("gif_model" to item) }
                 }
             }

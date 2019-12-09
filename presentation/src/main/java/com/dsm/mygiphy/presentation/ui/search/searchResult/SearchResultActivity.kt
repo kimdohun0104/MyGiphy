@@ -1,6 +1,7 @@
 package com.dsm.mygiphy.presentation.ui.search.searchResult
 
 import android.content.res.Configuration
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -26,7 +27,9 @@ class SearchResultActivity : BaseActivity<ActivitySearchResultBinding>() {
     private val search: String by lazy { intent.getStringExtra("search") }
     private val viewModel: SearchResultViewModel by viewModel { parametersOf(search) }
 
-    private val adapter: GifListAdapter by lazy { GifListAdapter() }
+    private val adapter: GifListAdapter by lazy {
+        GifListAdapter(Resources.getSystem().displayMetrics.widthPixels / (if (isPortrait()) 2 else 4) / 200.0)
+    }
 
     override fun viewInit() {
         ib_search_result_back.setOnClickListener { finish() }
@@ -37,7 +40,7 @@ class SearchResultActivity : BaseActivity<ActivitySearchResultBinding>() {
 
         rv_search_result.adapter = adapter
         (rv_search_result.layoutManager as StaggeredGridLayoutManager).spanCount =
-            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 2 else 4
+            if (isPortrait()) 2 else 4
     }
 
     override fun observeViewModel() {
@@ -69,4 +72,6 @@ class SearchResultActivity : BaseActivity<ActivitySearchResultBinding>() {
             }
         }
     }
+
+    private fun isPortrait() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 }

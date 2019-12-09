@@ -11,6 +11,7 @@
         android:id="@+id/iv_gif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         gifUrl="@{gifModel.gifUrl}">
 
     </androidx.appcompat.widget.AppCompatImageView>

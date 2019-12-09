@@ -1,6 +1,7 @@
 package com.dsm.mygiphy.presentation.ui.trend
 
 import android.content.res.Configuration
+import android.content.res.Resources
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -23,7 +24,9 @@ class TrendActivity : BaseActivity<ActivityTrendBinding>() {
 
     private val viewModel: TrendViewModel by viewModel()
 
-    private val adapter: GifListAdapter by lazy { GifListAdapter() }
+    private val adapter: GifListAdapter by lazy {
+        GifListAdapter(Resources.getSystem().displayMetrics.widthPixels / (if (isPortrait()) 2 else 4) / 200.0)
+    }
 
     override fun viewInit() {
         ib_trend_favorite.setOnClickListener { startActivity<FavoriteActivity>() }
@@ -32,7 +35,7 @@ class TrendActivity : BaseActivity<ActivityTrendBinding>() {
 
         rv_trend.adapter = adapter
         (rv_trend.layoutManager as StaggeredGridLayoutManager).spanCount =
-            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 2 else 4
+            if (isPortrait()) 2 else 4
     }
 
     override fun observeViewModel() {
@@ -50,4 +53,6 @@ class TrendActivity : BaseActivity<ActivityTrendBinding>() {
 
         viewModel.trendPagedList.observe(this, Observer { adapter.submitList(it) })
     }
+
+    private fun isPortrait() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 }

@@ -1,6 +1,7 @@
 package com.dsm.mygiphy.presentation.ui.favorite
 
 import android.content.res.Configuration
+import android.content.res.Resources
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -18,14 +19,16 @@ class FavoriteActivity : BaseActivity<ActivityFavoriteBinding>() {
 
     private val viewModel: FavoriteViewModel by viewModel()
 
-    private val adapter: FavoriteListAdapter by lazy { FavoriteListAdapter() }
+    private val adapter: FavoriteListAdapter by lazy {
+        FavoriteListAdapter(Resources.getSystem().displayMetrics.widthPixels / (if (isPortrait()) 2 else 4) / 200.0)
+    }
 
     override fun viewInit() {
         ib_favorite_back.setOnClickListener { finish() }
 
         rv_favorite.adapter = adapter
         (rv_favorite.layoutManager as StaggeredGridLayoutManager).spanCount =
-            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 2 else 4
+            if (isPortrait()) 2 else 4
 
         viewModel.getFavoriteGifList()
     }
@@ -43,4 +46,6 @@ class FavoriteActivity : BaseActivity<ActivityFavoriteBinding>() {
         super.onResume()
         viewModel.getFavoriteGifList()
     }
+
+    private fun isPortrait() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 }

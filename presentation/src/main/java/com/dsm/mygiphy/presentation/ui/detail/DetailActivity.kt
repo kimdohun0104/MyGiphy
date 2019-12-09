@@ -1,6 +1,11 @@
 package com.dsm.mygiphy.presentation.ui.detail
 
+import android.content.res.Resources
 import android.os.Bundle
+import android.util.TypedValue
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.lifecycle.Observer
 import com.dsm.mygiphy.R
 import com.dsm.mygiphy.databinding.ActivityDetailBinding
@@ -15,12 +20,22 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_detail
 
+    private val gifModel: GifModel by lazy { intent?.getParcelableExtra("gif_model") as GifModel }
     private val viewModel: DetailViewModel by viewModel()
 
     override fun viewInit() {
         ib_detail_back.setOnClickListener { finish() }
 
-        viewModel.setGifModel(intent?.getParcelableExtra("gif_model") as GifModel)
+        iv_detail_gif.layoutParams = ConstraintLayout.LayoutParams(MATCH_PARENT, gifModel.height * (Resources.getSystem().displayMetrics.widthPixels / 200)).apply {
+            leftToLeft = ConstraintSet.PARENT_ID
+            rightToRight = ConstraintSet.PARENT_ID
+            topToBottom = ib_detail_back.id
+            topMargin = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, 16f, resources.displayMetrics
+            ).toInt()
+        }
+
+        viewModel.setGifModel(gifModel)
 
         viewModel.getIsFavorite()
     }

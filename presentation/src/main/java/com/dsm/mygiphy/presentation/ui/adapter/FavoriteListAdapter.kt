@@ -9,7 +9,9 @@ import com.dsm.mygiphy.presentation.model.GifModel
 import com.dsm.mygiphy.presentation.ui.detail.DetailActivity
 import org.jetbrains.anko.startActivity
 
-class FavoriteListAdapter : RecyclerView.Adapter<FavoriteListAdapter.FavoriteHolder>() {
+class FavoriteListAdapter(
+    private val increase: Double
+) : RecyclerView.Adapter<FavoriteListAdapter.FavoriteHolder>() {
 
     private val gifItems = arrayListOf<GifModel>()
 
@@ -31,7 +33,7 @@ class FavoriteListAdapter : RecyclerView.Adapter<FavoriteListAdapter.FavoriteHol
             val item = gifItems[adapterPosition]
             binding.run {
                 gifModel = item
-                root.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, (item.height * 2.7).toInt())
+                root.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, (item.height * increase).toInt())
                 root.setOnClickListener { it.context.startActivity<DetailActivity>("gif_model" to item) }
             }
         }
