@@ -31,11 +31,16 @@ class FavoriteActivity : BaseActivity<ActivityFavoriteBinding>() {
     }
 
     override fun observeViewModel() {
-        viewModel.favoriteGifList.observe(this, Observer { adapter.addItems(it) })
+        viewModel.favoriteGifList.observe(this, Observer { adapter.setItems(it) })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getFavoriteGifList()
     }
 }

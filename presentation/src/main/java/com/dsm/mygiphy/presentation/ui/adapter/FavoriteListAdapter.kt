@@ -20,7 +20,8 @@ class FavoriteListAdapter : RecyclerView.Adapter<FavoriteListAdapter.FavoriteHol
 
     override fun onBindViewHolder(holder: FavoriteHolder, position: Int) = holder.bind()
 
-    fun addItems(items: List<GifModel>) {
+    fun setItems(items: List<GifModel>) {
+        gifItems.clear()
         gifItems.addAll(items)
         notifyDataSetChanged()
     }
