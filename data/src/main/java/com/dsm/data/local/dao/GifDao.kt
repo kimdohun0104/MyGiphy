@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.dsm.data.local.entity.GifRoomEntity
 import io.reactivex.Completable
+import io.reactivex.Flowable
 
 @Dao
 interface GifDao {
@@ -21,4 +22,7 @@ interface GifDao {
 
     @Query("UPDATE GifRoomEntity SET isFavorite = :isFavorite WHERE id = :gifId")
     fun setFavorite(gifId: String, isFavorite: Boolean): Completable
+
+    @Query("SELECT * FROM GifRoomEntity WHERE isFavorite = 1")
+    fun getFavoriteGifList(): Flowable<List<GifRoomEntity>>
 }

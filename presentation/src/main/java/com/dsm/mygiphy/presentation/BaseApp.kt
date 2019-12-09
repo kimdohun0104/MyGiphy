@@ -3,7 +3,9 @@ package com.dsm.mygiphy.presentation
 import android.app.Application
 import com.dsm.mygiphy.di.appModule
 import com.dsm.mygiphy.di.detail.detailModule
+import com.dsm.mygiphy.di.favorite.favoriteModule
 import com.dsm.mygiphy.di.localModule
+import com.dsm.mygiphy.di.mapperModule
 import com.dsm.mygiphy.di.networkModule
 import com.dsm.mygiphy.di.trend.trendModule
 import org.koin.android.ext.koin.androidContext
@@ -23,9 +25,11 @@ class BaseApp : Application() {
                     localModule,
                     networkModule,
                     appModule,
+                    mapperModule,
 
                     trendModule,
-                    detailModule
+                    detailModule,
+                    favoriteModule
                 )
             )
         }

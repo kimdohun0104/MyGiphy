@@ -9,8 +9,10 @@ import com.dsm.mygiphy.databinding.ActivityTrendBinding
 import com.dsm.mygiphy.presentation.base.BaseActivity
 import com.dsm.mygiphy.presentation.paging.NetworkState
 import com.dsm.mygiphy.presentation.ui.adapter.TrendListAdapter
+import com.dsm.mygiphy.presentation.ui.favorite.FavoriteActivity
 import com.dsm.mygiphy.presentation.util.retrySnackbar
 import kotlinx.android.synthetic.main.activity_trend.*
+import org.jetbrains.anko.startActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TrendActivity : BaseActivity<ActivityTrendBinding>() {
@@ -23,6 +25,8 @@ class TrendActivity : BaseActivity<ActivityTrendBinding>() {
     private val adapter: TrendListAdapter by lazy { TrendListAdapter() }
 
     override fun viewInit() {
+        ib_trend_favorite.setOnClickListener { startActivity<FavoriteActivity>() }
+
         rv_trend.adapter = adapter
         (rv_trend.layoutManager as StaggeredGridLayoutManager).spanCount =
             if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 2 else 4

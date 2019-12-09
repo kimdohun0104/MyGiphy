@@ -10,6 +10,7 @@
     <string name="search_gif">GIF 검색</string>
     <string name="gif">GIF</string>
 
+    <string name="favorite_gif">관심 GIF</string>
     <string name="set_favorite">관심 GIF 등록!</string>
     <string name="set_unfavorite">관심 GIF 해제…</string>
 </resources>
