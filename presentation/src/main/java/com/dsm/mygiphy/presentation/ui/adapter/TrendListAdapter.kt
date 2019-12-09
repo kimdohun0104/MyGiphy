@@ -68,11 +68,13 @@ class TrendListAdapter : PagedListAdapter<GifModel, RecyclerView.ViewHolder>(DIF
     }
 
     inner class TrendHolder(private val binding: ItemGifBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: GifModel?) = binding.run {
-            gifUrl = item?.gifUrl
-            ivGif.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, ((item?.height ?: 200) * 2.7).toInt())
-            root.setOnClickListener {
-                root.context.startActivity<DetailActivity>("gif_model" to item)
+        fun bind(item: GifModel?) {
+            binding.run {
+                item?.let { item ->
+                    gifModel = item
+                    root.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, (item.height * 2.7).toInt())
+                    root.setOnClickListener { it.context.startActivity<DetailActivity>("gif_model" to item) }
+                }
             }
         }
     }
