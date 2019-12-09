@@ -9,4 +9,10 @@ interface GiphyApi {
 
     @GET("v1/gifs/trending")
     fun getTrendGifList(@Query("offset") page: Int): Flowable<GifListData>
+
+    @GET("v1/gifs/search")
+    fun searchGifList(
+        @Query("offset") page: Int,
+        @Query("q") q: String
+    ): Flowable<GifListData>
 }

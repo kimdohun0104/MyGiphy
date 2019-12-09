@@ -4,6 +4,8 @@ data class GifEntity(
 
     val id: String,
 
+    val slug: String,
+
     val gifUrl: String,
 
     val height: Int,

@@ -9,6 +9,8 @@ data class GifRoomEntity(
     @PrimaryKey
     val id: String,
 
+    val slug: String,
+
     val gifUrl: String,
 
     val avatarUrl: String,
