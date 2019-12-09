@@ -47,7 +47,7 @@
 
 ### 네이밍 규칙
 
-Res 네이밍 규칙은 [[Android] Resources Naming Rule](https://b.jy.is/android-resource-naming-rule/)을 기반으로 작성됩니다. 하지만 size는 제외합니다.
+Res 네이밍 규칙은 [[Android] Resources Naming Rule](https://b.jy.is/android-resource-naming-rule/)을 기반으로 작성됩니다.
 
 
 
@@ -94,6 +94,11 @@ Res 네이밍 규칙은 [[Android] Resources Naming Rule](https://b.jy.is/androi
            데이터를 변경하거나 이벤트를 발생시킵니다.
            2. View : View는 Activity, Fragment가 해당할 수 있습니다. View는 ViewModel에 있는 데이터와
            이벤트를 observe하고 있습니다. ViewModel의 데이터가 변경될 때 자동으로 화면이 변경됩니다.
+
+        비즈니스 로직을 따로 거칠 필요가 없을 경우에 Presentation Layer (ViewModel)에서 직접 Data Layer에
+        접근하여 I/O를 진행합니다. 예를 들어서 검색 결과를 불러오는 로직은 아주 간단합니다. 이런 로직을 domain
+        계층에 까지 넘겨 처리하게 된다면 코드의 복잡성이 증가할 것을 우려해 이런 경우는 ViewModel에서 바로 data의
+        Dao에 접근할 수 있도록 권장합니다.
 
 <br>
 
