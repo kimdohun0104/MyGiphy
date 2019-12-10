@@ -1,9 +1,7 @@
 package com.dsm.data.local.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import com.dsm.data.local.entity.GifRoomEntity
 import com.dsm.data.local.entity.SearchHistoryRoomEntity
 import io.reactivex.Completable
@@ -34,5 +32,8 @@ interface GifDao {
     fun saveSearchHistory(searchHistoryRoomEntity: SearchHistoryRoomEntity): Completable
 
     @Query("SELECT * FROM SearchHistoryRoomEntity")
-    fun getSearchHistoryList(): List<SearchHistoryRoomEntity>
+    fun getSearchHistoryList(): LiveData<List<SearchHistoryRoomEntity>>
+
+    @Delete
+    fun deleteSearchHistory(searchHistoryRoomEntity: SearchHistoryRoomEntity): Completable
 }
