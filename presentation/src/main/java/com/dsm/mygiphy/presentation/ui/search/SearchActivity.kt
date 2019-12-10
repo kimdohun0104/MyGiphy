@@ -30,11 +30,10 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
         rv_search_history.adapter = adapter
 
         ib_search.setOnClickListener { startSearchResultActivity() }
-
     }
 
     override fun observeViewModel() {
-        viewModel.getSearchHistory().observe(this, Observer { adapter.setItems(it.map { list -> list.search }.reversed()) })
+        viewModel.getSearchHistory().observe(this, Observer { adapter.setItems(it) })
     }
 
     private fun startSearchResultActivity() {
