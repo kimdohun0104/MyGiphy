@@ -13,7 +13,7 @@ class SearchServiceImpl(
 
     override fun searchGifList(page: Int, q: String): Flowable<Success<List<GifEntity>>> =
         (if (page > 1) 25 * (page - 1) else 0).let { p ->
-            repository.searchGifList(p, q)
+            repository.searchRemoteGifList(p, q)
                 .doOnNext {
                     repository.saveLocalGifList(it).subscribe()
                     repository.saveSearchHistory(q).subscribe()

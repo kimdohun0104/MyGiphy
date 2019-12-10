@@ -9,12 +9,11 @@ import io.reactivex.disposables.CompositeDisposable
 
 class SearchKeyedDataSource(
     private val searchGifListUseCase: SearchGifListUseCase,
+    private val composite: CompositeDisposable,
     private val search: String
 ) : PageKeyedDataSource<Int, GifEntity>() {
 
     val networkState = MutableLiveData<NetworkState>()
-
-    private val composite = CompositeDisposable()
 
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, GifEntity>) {
         networkState.postValue(NetworkState.LOADING)

@@ -31,7 +31,7 @@ class SearchResultViewModel(
             .setPageSize(25)
             .build()
 
-        val dataFactory = SearchDataFactory(searchGifListUseCase, search)
+        val dataFactory = SearchDataFactory(searchGifListUseCase, composite, search)
         val modelDataFactory = dataFactory.mapByPage { list -> list.map { gifModelMapper.mapFrom(it) } }
 
         networkState = Transformations.switchMap(dataFactory.sourceLiveData) { it.networkState }

@@ -8,7 +8,7 @@ import io.reactivex.Flowable
 
 interface SearchDataSource {
 
-    fun searchGifList(offset: Int, q: String): Flowable<GifListData>
+    fun searchRemoteGifList(offset: Int, q: String): Flowable<GifListData>
 
     fun searchLocalGifList(offset: Int, q: String): List<GifRoomEntity>?
 

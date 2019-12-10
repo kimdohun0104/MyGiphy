@@ -12,7 +12,7 @@ interface GiphyApi {
 
     @GET("v1/gifs/search")
     fun searchGifList(
-        @Query("offset") page: Int,
+        @Query("offset") offset: Int,
         @Query("q") q: String
     ): Flowable<GifListData>
 }

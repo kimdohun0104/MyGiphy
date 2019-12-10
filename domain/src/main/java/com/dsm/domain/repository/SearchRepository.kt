@@ -6,7 +6,7 @@ import io.reactivex.Flowable
 
 interface SearchRepository {
 
-    fun searchGifList(offset: Int, q: String): Flowable<List<GifEntity>>
+    fun searchRemoteGifList(offset: Int, q: String): Flowable<List<GifEntity>>
 
     fun searchLocalGifList(offset: Int, q: String): List<GifEntity>?
 

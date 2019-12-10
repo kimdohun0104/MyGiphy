@@ -12,4 +12,6 @@ val localModule = module {
     }
 
     single { get<AppDataBase>().gifDao() }
+
+    factory { get<AppDataBase>().searchHistoryDao() }
 }

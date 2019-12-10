@@ -25,7 +25,7 @@ class TrendViewModel(
             .setPageSize(25)
             .build()
 
-        val dataFactory = TrendDataFactory(getTrendListUseCase)
+        val dataFactory = TrendDataFactory(getTrendListUseCase, composite)
         val modelDataFactory = dataFactory.mapByPage { list -> list.map { gifModelMapper.mapFrom(it) } }
 
         networkState = Transformations.switchMap(dataFactory.sourceLiveData) { it.networkState }

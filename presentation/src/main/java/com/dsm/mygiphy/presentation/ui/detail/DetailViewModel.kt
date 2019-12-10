@@ -2,9 +2,9 @@ package com.dsm.mygiphy.presentation.ui.detail
 
 import androidx.lifecycle.MutableLiveData
 import com.dsm.data.local.dao.GifDao
-import com.dsm.dsmmarketandroid.presentation.util.SingleLiveEvent
 import com.dsm.mygiphy.R
 import com.dsm.mygiphy.presentation.base.BaseViewModel
+import com.dsm.mygiphy.presentation.base.SingleLiveEvent
 import com.dsm.mygiphy.presentation.model.GifModel
 
 class DetailViewModel(
