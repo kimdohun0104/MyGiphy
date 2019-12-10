@@ -124,7 +124,8 @@ Res 네이밍 규칙은 [[Android] Resources Naming Rule](https://b.jy.is/androi
         이전 프로젝트에서 에러 처리는 에러가 발생했을 때 HttpException을 throw하는 방법을 사용했습니다. 이 부분에서 아이디어를 얻어
         '상황에 맞는 Exception을 던져주면 깔끔하지 않을까?' 라고 생각하게 되었습니다. 그래서 기존 예외에 따라 ErrorEntity로 변경해주던
         ErrorHandler를 상황에 맞는 Exception을 반환해주도록 변경했습니다. Exception은 직접 NotFoundException, InternalException 등
-        직접 선언한 클래스를 사용하게 되었습니다. 
+        직접 선언한 클래스를 사용하게 되었습니다. domain의 ErrorHandler interface를 data에서 구현해주면서 presentation, domain은
+        HttpException을 알 필요가 없어졌습니다.
         
         결과적으로 이전 문제였던 조건문의 남발, onError에서 처리, 가독성 등 다양한 문제를 해결할 수 있었습니다. 
      
