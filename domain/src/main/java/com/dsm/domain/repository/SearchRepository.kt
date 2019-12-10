@@ -6,9 +6,9 @@ import io.reactivex.Flowable
 
 interface SearchRepository {
 
-    fun searchGifList(page: Int, q: String): Flowable<List<GifEntity>>
+    fun searchGifList(offset: Int, q: String): Flowable<List<GifEntity>>
 
-    fun searchLocalGifList(page: Int, q: String): List<GifEntity>?
+    fun searchLocalGifList(offset: Int, q: String): List<GifEntity>?
 
     fun saveLocalGifList(gifEntityList: List<GifEntity>): Completable
 

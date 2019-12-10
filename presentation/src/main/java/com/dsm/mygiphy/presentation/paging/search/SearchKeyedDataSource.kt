@@ -20,9 +20,9 @@ class SearchKeyedDataSource(
         networkState.postValue(NetworkState.LOADING)
 
         composite.add(
-            searchGifListUseCase.create(SearchGifListUseCase.Params(0, search))
+            searchGifListUseCase.create(SearchGifListUseCase.Params(1, search))
                 .subscribe({
-                    callback.onResult(it.data, null, 1)
+                    callback.onResult(it.data, null, 2)
                     if (it.isLocal) networkState.postValue(NetworkState.LOCAL)
                     else networkState.postValue(NetworkState.LOADED)
                 }, {

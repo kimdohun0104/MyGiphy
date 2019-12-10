@@ -13,11 +13,11 @@ class SearchRepositoryImpl(
     private val gifEntityMapper: GifEntityMapper
 ) : SearchRepository {
 
-    override fun searchGifList(page: Int, q: String): Flowable<List<GifEntity>> =
-        dataSource.searchGifList(page, q).map { data ->  data.gifList.map { gifEntityMapper.mapFrom(it) } }
+    override fun searchGifList(offset: Int, q: String): Flowable<List<GifEntity>> =
+        dataSource.searchGifList(offset, q).map { data ->  data.gifList.map { gifEntityMapper.mapFrom(it) } }
 
-    override fun searchLocalGifList(page: Int, q: String): List<GifEntity>? =
-        dataSource.searchLocalGifList(page, q)?.map(gifEntityMapper::roomToEntity)
+    override fun searchLocalGifList(offset: Int, q: String): List<GifEntity>? =
+        dataSource.searchLocalGifList(offset, q)?.map(gifEntityMapper::roomToEntity)
 
     override fun saveLocalGifList(gifEntityList: List<GifEntity>): Completable =
         dataSource.saveLocalGifList(gifEntityList.map(gifEntityMapper::entityToRoom))

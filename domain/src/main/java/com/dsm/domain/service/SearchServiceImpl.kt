@@ -12,17 +12,18 @@ class SearchServiceImpl(
 ) : SearchService {
 
     override fun searchGifList(page: Int, q: String): Flowable<Success<List<GifEntity>>> =
-        repository.searchGifList(page, q)
-            .doOnNext {
-                repository.saveLocalGifList(it).subscribe()
-                repository.saveSearchHistory(q).subscribe()
-            }
-            .map { Success(it) }
-            .onErrorReturn {
-                repository.searchLocalGifList(page, q)?.let { gifList ->
-                    return@onErrorReturn Success(gifList, true)
+        (if (page > 1) 25 * (page - 1) else 0).let { p ->
+            repository.searchGifList(p, q)
+                .doOnNext {
+                    repository.saveLocalGifList(it).subscribe()
+                    repository.saveSearchHistory(q).subscribe()
                 }
-                throw errorHandler.getError(it)
-            }
-
+                .map { Success(it) }
+                .onErrorReturn {
+                    repository.searchLocalGifList(p, q)?.let { gifList ->
+                        return@onErrorReturn Success(gifList, true)
+                    }
+                    throw errorHandler.getError(it)
+                }
+        }
 }

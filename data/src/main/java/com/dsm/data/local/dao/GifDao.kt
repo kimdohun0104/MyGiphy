@@ -15,8 +15,8 @@ interface GifDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun saveGifList(gifRoomEntityList: List<GifRoomEntity>): Completable
 
-    @Query("SELECT * FROM GifRoomEntity LIMIT 25 OFFSET :page")
-    fun getGifList(page: Int): List<GifRoomEntity>?
+    @Query("SELECT * FROM GifRoomEntity LIMIT 25 OFFSET :offset")
+    fun getGifList(offset: Int): List<GifRoomEntity>?
 
     @Query("SELECT isFavorite FROM GifRoomEntity WHERE id = :gifId")
     fun isFavoriteGif(gifId: String): Boolean
@@ -27,8 +27,8 @@ interface GifDao {
     @Query("SELECT * FROM GifRoomEntity WHERE isFavorite = 1")
     fun getFavoriteGifList(): Flowable<List<GifRoomEntity>>
 
-    @Query("SELECT * FROM GifRoomEntity WHERE slug LIKE '%' || :q || '%' LIMIT 25 OFFSET :page")
-    fun searchGifList(page: Int, q: String): List<GifRoomEntity>?
+    @Query("SELECT * FROM GifRoomEntity WHERE slug LIKE '%' || :q || '%' LIMIT 25 OFFSET :offset")
+    fun searchGifList(offset: Int, q: String): List<GifRoomEntity>?
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun saveSearchHistory(searchHistoryRoomEntity: SearchHistoryRoomEntity): Completable

@@ -14,11 +14,11 @@ class SearchDataSourceImpl(
     private val gifDao: GifDao
 ) : SearchDataSource {
 
-    override fun searchGifList(page: Int, q: String): Flowable<GifListData> =
-        giphyApi.searchGifList(page, q).addSchedulers()
+    override fun searchGifList(offset: Int, q: String): Flowable<GifListData> =
+        giphyApi.searchGifList(offset, q).addSchedulers()
 
-    override fun searchLocalGifList(page: Int, q: String): List<GifRoomEntity>? =
-        gifDao.searchGifList(page, q)
+    override fun searchLocalGifList(offset: Int, q: String): List<GifRoomEntity>? =
+        gifDao.searchGifList(offset, q)
 
     override fun saveLocalGifList(gifRoomEntityList: List<GifRoomEntity>): Completable =
         gifDao.saveGifList(gifRoomEntityList)
