@@ -23,6 +23,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
 
     override fun viewInit() {
         et_search.requestFocus()
+        et_search.setEditorActionListener(EditorInfo.IME_ACTION_SEARCH) { startSearchResultActivity() }
 
         ib_search_back.setOnClickListener { finish() }
 
@@ -30,11 +31,10 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
 
         ib_search.setOnClickListener { startSearchResultActivity() }
 
-        et_search.setEditorActionListener(EditorInfo.IME_ACTION_SEARCH) { startSearchResultActivity() }
     }
 
     override fun observeViewModel() {
-        viewModel.getSearchHistory().observe(this, Observer { adapter.setItems(it.map { list -> list.search }) })
+        viewModel.getSearchHistory().observe(this, Observer { adapter.setItems(it.map { list -> list.search }.reversed()) })
     }
 
     private fun startSearchResultActivity() {

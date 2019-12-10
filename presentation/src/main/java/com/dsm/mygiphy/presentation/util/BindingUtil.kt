@@ -9,10 +9,7 @@ object BindingUtil {
     @BindingAdapter("gifUrl")
     fun bindGifUrl(view: ImageView, gifUrl: String?) {
         gifUrl?.let {
-            GlideApp.with(view)
-                .load(it)
-                .override(view.width, view.height)
-                .into(view)
+            GlideApp.with(view).load(it).into(view)
         }
     }
 
