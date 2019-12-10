@@ -10,7 +10,7 @@ import io.reactivex.Completable
 
 @Dao
 interface SearchHistoryDao {
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveSearchHistory(searchHistoryRoomEntity: SearchHistoryRoomEntity): Completable
 
     @Query("SELECT * FROM SearchHistoryRoomEntity LIMIT 6")
