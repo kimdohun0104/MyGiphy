@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="retry">retry</string>
+	<string name="gif">GIF</string>
+	<string name="fail_internal">Please check the network status</string>
+	<string name="fail_not_found">Can not find GIF</string>
+	<string name="trend_gif">Popular GIF</string>
+	<string name="favorite_gif">Interest GIF</string>
+	<string name="set_favorite">Interest GIF registration!</string>
+	<string name="set_unfavorite">Interest GIF off …</string>
+	<string name="search_gif">GIF Search</string>
+	<string name="search">Search</string>
+	<string name="search_history">Search History</string>
+</resources>

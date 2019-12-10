@@ -156,6 +156,23 @@ Res 네이밍 규칙은 [[Android] Resources Naming Rule](https://b.jy.is/androi
     3. 이후에 응답을 받을 수 없는 경우에 저장된 데이터를 사용합니다.
     4. 만약 로컬에서 불러온 데이터라면 사용자에게 SnackBar 노출해 재시도를 유됴합니다.
 
+<br>
+
+- 다크테마
+    
+    다크테마는 최근 들어서 관심있게 사용하는 기술입니다. 대마장터라는 프로젝트에서 실제로 적용해본 경험이 
+    있었는데 color, drawable 시스템이 중요하다는 것을 깨달았습니다. 그래서 이번 프로젝트에선 처음부터 
+    다크테마를 고려하면서 작성해야겠다고 생각했습니다. 그런데 막상 사용하는 색상이 다양하지 않고 고려할 부분은
+    적었습니다. 그래도 성공적으로 다크테마를 적용하게 되었습니다.
+
+<br>
+
+### 최종 결과 스크린샷
+
+    ![스크린샷](https://user-images.githubusercontent.com/36754680/70515261-67387480-1b78-11ea-90ca-bf6f4689bfbd.png)
+
+<br>
+
 ### 오픈 소스
 
 - RxJava
@@ -165,7 +182,7 @@ Res 네이밍 규칙은 [[Android] Resources Naming Rule](https://b.jy.is/androi
     그 외에 map, flatMap 등 스트림을 가공할 수 있는 다양한 기능을 제공하여 데이터 처리에 유용합니다. 
     
     그래서 MyGIPHY는 모든 API 호출의 응답을 RxJava의 Flowable로 처리합니다. 여기서 Observable대신 Flowable을 
-    사용한 이유는 Backpressure라는 버퍼때문입니다. Backpressure Buffer는 데이터가 한 번에 떠밀려와 
+    사용한 이유는 Backpressure라는 버퍼때문입니다. Backpressure Buffer는 데이터가 한 ㅇ번에 떠밀려와 
     성능에 영향을 주거나 OutOfMemory를 발생시키지 않도록 예방할 수 있습니다.
 
 <br>    

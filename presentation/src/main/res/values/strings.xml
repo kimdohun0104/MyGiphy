@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My GIPHY</string>
+    <string name="app_name" translatable="false">My GIPHY</string>
 
     <string name="retry">재시도</string>
     <string name="gif">GIF</string>
