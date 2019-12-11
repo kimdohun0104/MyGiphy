@@ -29,11 +29,15 @@ class DetailListAdapter(
             val item = detailItems[adapterPosition]
             binding.viewModel = viewModel
             binding.gifModel = item
+
+
             viewModel.isFavoriteGif(item.id).observe(binding.root.context as LifecycleOwner, Observer { binding.isFavorite = it })
+
             binding.ivDetailGif.updateLayoutParams {
                 width = MATCH_PARENT
                 height = (item.height * (Resources.getSystem().displayMetrics.widthPixels / 200.0)).toInt()
             }
+
         }
     }
 }
