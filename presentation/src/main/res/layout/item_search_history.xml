@@ -2,6 +2,7 @@
 <layout>
 
     <data>
+
         <variable
             name="search"
             type="String" />
@@ -14,7 +15,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onSearchGif(search)}">
 
         <TextView
             android:id="@+id/tv_search_history"
@@ -24,13 +26,13 @@
             android:layout_marginLeft="@dimen/guild_line_18dp"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="14dp"
+            android:text="@{search}"
             android:textColor="@color/colorBlackWhite"
             android:textSize="@dimen/size_text_small_12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@{search}"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/ib_search_history_delete"
@@ -39,13 +41,13 @@
             android:layout_marginEnd="@dimen/guild_line_18dp"
             android:layout_marginRight="@dimen/guild_line_18dp"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:onClick="@{() -> viewModel.deleteSearchHistory(search)}"
+            android:padding="4dp"
             android:src="@drawable/ic_delete_24dp"
             android:tint="@color/colorBlackWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:onClick="@{() -> viewModel.deleteSearchHistory(search)}"/>
-
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="0dp"

@@ -13,7 +13,7 @@ interface SearchHistoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveSearchHistory(searchHistoryRoomEntity: SearchHistoryRoomEntity): Completable
 
-    @Query("SELECT * FROM SearchHistoryRoomEntity LIMIT 6")
+    @Query("SELECT * FROM SearchHistoryRoomEntity")
     fun getSearchHistoryList(): LiveData<List<SearchHistoryRoomEntity>>
 
     @Query("DELETE FROM SearchHistoryRoomEntity WHERE search = :search")

@@ -4,17 +4,15 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.dsm.mygiphy.R
 import com.dsm.mygiphy.databinding.ActivitySearchResultBinding
 import com.dsm.mygiphy.presentation.base.BaseActivity
 import com.dsm.mygiphy.presentation.paging.NetworkState
 import com.dsm.mygiphy.presentation.ui.adapter.GifListAdapter
-import com.dsm.mygiphy.presentation.util.getSpanCountWithOrientation
 import com.dsm.mygiphy.presentation.util.retrySnackbar
 import com.dsm.mygiphy.presentation.util.setEditorActionListener
+import com.dsm.mygiphy.presentation.util.setStaggeredGridSpanCount
 import kotlinx.android.synthetic.main.activity_search_result.*
-import org.jetbrains.anko.displayMetrics
 import org.jetbrains.anko.startActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -27,19 +25,26 @@ class SearchResultActivity : BaseActivity<ActivitySearchResultBinding>() {
     private val search: String by lazy { intent.getStringExtra("search") }
     private val viewModel: SearchResultViewModel by viewModel { parametersOf(search) }
 
-    private val adapter: GifListAdapter by lazy {
-        GifListAdapter(displayMetrics.widthPixels / getSpanCountWithOrientation() / 200.0)
-    }
+    private val adapter: GifListAdapter by lazy { GifListAdapter() }
 
     override fun viewInit() {
         ib_search_result_back.setOnClickListener { finish() }
 
-        ib_result_search.setOnClickListener { startSearchResult() }
+        ib_result_search.setOnClickListener { startNewSearchResult() }
 
-        et_search_result.setEditorActionListener(EditorInfo.IME_ACTION_SEARCH) { startSearchResult() }
+        et_search_result.setEditorActionListener(EditorInfo.IME_ACTION_SEARCH) { startNewSearchResult() }
 
         rv_search_result.adapter = adapter
-        (rv_search_result.layoutManager as StaggeredGridLayoutManager).spanCount = getSpanCountWithOrientation()
+        rv_search_result.setStaggeredGridSpanCount()
+    }
+
+    private fun startNewSearchResult() {
+        et_search_result.text.toString().trim().let {
+            if (it.isNotBlank()) {
+                startActivity<SearchResultActivity>("search" to it)
+                finish()
+            }
+        }
     }
 
     override fun observeViewModel() {
@@ -63,12 +68,5 @@ class SearchResultActivity : BaseActivity<ActivitySearchResultBinding>() {
         binding.viewModel = viewModel
     }
 
-    private fun startSearchResult() {
-        et_search_result.text.toString().trim().let {
-            if (it.isNotBlank()) {
-                startActivity<SearchResultActivity>("search" to it)
-                finish()
-            }
-        }
-    }
+
 }

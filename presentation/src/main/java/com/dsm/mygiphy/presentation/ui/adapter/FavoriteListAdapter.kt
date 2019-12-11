@@ -3,15 +3,15 @@ package com.dsm.mygiphy.presentation.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.mygiphy.databinding.ItemGifBinding
 import com.dsm.mygiphy.presentation.model.GifModel
 import com.dsm.mygiphy.presentation.ui.detail.DetailActivity
+import com.dsm.mygiphy.presentation.util.DimensionUtil
 import org.jetbrains.anko.startActivity
 
-class FavoriteListAdapter(
-    private val increase: Double
-) : RecyclerView.Adapter<FavoriteListAdapter.FavoriteHolder>() {
+class FavoriteListAdapter : RecyclerView.Adapter<FavoriteListAdapter.FavoriteHolder>() {
 
     private val gifItems = arrayListOf<GifModel>()
 
@@ -33,8 +33,18 @@ class FavoriteListAdapter(
             val item = gifItems[adapterPosition]
             binding.run {
                 gifModel = item
-                root.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, (item.height * increase).toInt())
-                root.setOnClickListener { it.context.startActivity<DetailActivity>("gif_list" to gifItems, "position" to adapterPosition) }
+
+                root.updateLayoutParams {
+                    width = MATCH_PARENT
+                    height = DimensionUtil.getHeightByRatioWithSpan(item.height)
+                }
+
+                root.setOnClickListener {
+                    it.context.startActivity<DetailActivity>(
+                        "gif_list" to gifItems,
+                        "position" to adapterPosition
+                    )
+                }
             }
         }
     }

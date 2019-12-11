@@ -2,6 +2,7 @@
 <layout>
 
     <data>
+
         <variable
             name="gifModel"
             type="com.dsm.mygiphy.presentation.model.GifModel" />
@@ -9,9 +10,9 @@
 
     <androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/iv_gif"
+        gifUrl="@{gifModel.gifUrl}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        gifUrl="@{gifModel.gifUrl}"
         android:padding="2dp">
 
     </androidx.appcompat.widget.AppCompatImageView>

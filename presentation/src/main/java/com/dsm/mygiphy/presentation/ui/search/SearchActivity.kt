@@ -23,25 +23,23 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
 
     override fun viewInit() {
         et_search.requestFocus()
-        et_search.setEditorActionListener(EditorInfo.IME_ACTION_SEARCH) { startSearchResultActivity() }
+        et_search.setEditorActionListener(EditorInfo.IME_ACTION_SEARCH) { viewModel.onSearchGif(getSearchText()) }
+
+        ib_search.setOnClickListener { viewModel.onSearchGif(getSearchText()) }
 
         ib_search_back.setOnClickListener { finish() }
 
         rv_search_history.adapter = adapter
-
-        ib_search.setOnClickListener { startSearchResultActivity() }
     }
+
+    private fun getSearchText() = et_search.text.toString().trim()
 
     override fun observeViewModel() {
         viewModel.getSearchHistory().observe(this, Observer { adapter.setItems(it) })
+
+        viewModel.intentSearchResultEvent.observe(this, Observer { startActivity<SearchResultActivity>("search" to it) })
+
+        viewModel.finishActivityEvent.observe(this, Observer { finish() })
     }
 
-    private fun startSearchResultActivity() {
-        et_search.text.toString().trim().let {
-            if (it.isNotBlank()) {
-                startActivity<SearchResultActivity>("search" to it)
-                finish()
-            }
-        }
-    }
 }

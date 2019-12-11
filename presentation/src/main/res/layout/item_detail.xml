@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -39,11 +40,10 @@
                 imageUrl="@{gifModel.avatarUrl}"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="@dimen/guild_line_18dp"
+                android:layout_marginLeft="@dimen/guild_line_18dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="@color/colorBlackWhite"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_detail_gif"
@@ -55,8 +55,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="@dimen/guild_line_18dp"
+                android:layout_marginRight="@dimen/guild_line_18dp"
                 android:singleLine="true"
                 android:text="@{gifModel.displayName}"
                 android:textColor="@color/colorBlackWhite"
@@ -71,8 +71,8 @@
                 android:id="@+id/tv_detail_uid"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="@dimen/guild_line_18dp"
+                android:layout_marginRight="@dimen/guild_line_18dp"
                 android:singleLine="true"
                 android:text='@{gifModel.userName.equals("") ? "" : "@" + gifModel.userName}'
                 android:textColor="@color/colorBlackWhite"
@@ -90,7 +90,8 @@
                 android:layout_marginEnd="@dimen/guild_line_18dp"
                 android:layout_marginRight="@dimen/guild_line_18dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:onClick="@{() -> viewModel.favoriteGif(gifModel.id)}"
+                android:onClick="@{() -> viewModel.favoriteGif(gifModel.id, isFavorite)}"
+                android:padding="10dp"
                 android:src="@{isFavorite ? @drawable/ic_favorite_red_24dp : @drawable/ic_favorite_border_red_24dp}"
                 app:layout_constraintBottom_toBottomOf="@id/iv_detail_user"
                 app:layout_constraintRight_toRightOf="parent"

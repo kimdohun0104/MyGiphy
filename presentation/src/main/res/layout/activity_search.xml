@@ -16,6 +16,7 @@
             android:layout_marginLeft="@dimen/guild_line_18dp"
             android:layout_marginTop="@dimen/guild_line_18dp"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
             android:src="@drawable/ic_arrow_back_blue_24dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -49,14 +50,14 @@
                 android:layout_weight="1"
                 android:background="@color/colorGreyWhite"
                 android:hint="@string/search_gif"
+                android:imeOptions="actionSearch"
                 android:paddingStart="@dimen/guild_line_18dp"
                 android:paddingLeft="@dimen/guild_line_18dp"
-                android:textSize="@dimen/size_text_small_12sp"
-                tools:ignore="RtlSymmetry"
+                android:singleLine="true"
                 android:textColor="@color/colorBlack"
                 android:textColorHint="@color/colorTextGrey"
-                android:imeOptions="actionSearch"
-                android:singleLine="true" />
+                android:textSize="@dimen/size_text_small_12sp"
+                tools:ignore="RtlSymmetry" />
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/ib_search"
@@ -72,35 +73,35 @@
             android:id="@+id/tv_search_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ll_search"
             android:layout_marginStart="@dimen/guild_line_18dp"
             android:layout_marginLeft="@dimen/guild_line_18dp"
             android:layout_marginTop="12dp"
+            android:text="@string/search_history"
+            android:textColor="@color/colorBlackWhite"
             android:textSize="@dimen/size_text_small_12sp"
             android:textStyle="bold"
-            android:textColor="@color/colorBlackWhite"
-            android:text="@string/search_history"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_search" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="@color/colorBlackWhite"
-            app:layout_constraintTop_toTopOf="@id/rv_search_history"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
-        
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rv_search_history" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_search_history"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_search_history"
-            android:layout_marginTop="12dp"
-            android:overScrollMode="never"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_search_history" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

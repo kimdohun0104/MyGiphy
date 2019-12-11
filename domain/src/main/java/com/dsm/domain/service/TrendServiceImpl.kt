@@ -12,15 +12,13 @@ class TrendServiceImpl(
 ) : TrendService {
 
     override fun getTrendList(page: Int): Flowable<Success<List<GifEntity>>> =
-        (if (page > 1) 25 * (page - 1) else 0).let { p ->
-            repository.getRemoteTrendList(p)
-                .doOnNext { repository.saveLocalGifList(it).subscribe() }
-                .map { Success(it) }
-                .onErrorReturn {
-                    repository.getLocalTrendList(p)?.let { list ->
-                        return@onErrorReturn Success(list, true)
-                    }
-                    throw errorHandler.getError(it)
+        repository.getRemoteTrendList(page)
+            .doOnNext { repository.saveLocalGifList(it).subscribe() }
+            .map { Success(it) }
+            .onErrorReturn {
+                repository.getLocalTrendList(page)?.let { list ->
+                    return@onErrorReturn Success(list, true)
                 }
-        }
+                throw errorHandler.getError(it)
+            }
 }

@@ -5,10 +5,14 @@
 
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
-    <color name="colorPurple">#D14FAC</color>
-    <color name="colorBlue">#00A3FF</color>
     <color name="colorTextGrey">#BDBDBD</color>
 
     <color name="colorBlackWhite">#000000</color>
     <color name="colorGreyWhite">#EEEEEE</color>
+
+    <color name="colorPurple">#D14FAC</color>
+    <color name="colorBlue">#00A3FF</color>
+    <color name="colorOrange">#FFA726</color>
+    <color name="colorGreen">#66BB6A</color>
+    <color name="colorRed">#EF5350</color>
 </resources>

@@ -8,11 +8,8 @@ class DetailViewModel(
 ) : BaseViewModel() {
 
     fun isFavoriteGif(gifId: String) =
-        gifDao.isFavoriteGifLiveData(gifId)
+        gifDao.isFavoriteGif(gifId)
 
-    fun favoriteGif(gifId: String) {
-        (!gifDao.isFavoriteGif(gifId)).let {
-            gifDao.setFavorite(gifId, it).subscribe()
-        }
-    }
+    fun favoriteGif(gifId: String, currentStatus: Boolean) =
+        addDisposable(gifDao.setFavorite(gifId, !currentStatus).subscribe())
 }

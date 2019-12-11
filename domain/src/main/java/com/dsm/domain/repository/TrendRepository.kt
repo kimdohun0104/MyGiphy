@@ -6,9 +6,9 @@ import io.reactivex.Flowable
 
 interface TrendRepository {
 
-    fun getRemoteTrendList(offset: Int): Flowable<List<GifEntity>>
+    fun getRemoteTrendList(page: Int): Flowable<List<GifEntity>>
 
-    fun getLocalTrendList(offset: Int): List<GifEntity>?
+    fun getLocalTrendList(page: Int): List<GifEntity>?
 
     fun saveLocalGifList(gifEntityList: List<GifEntity>): Completable
 }

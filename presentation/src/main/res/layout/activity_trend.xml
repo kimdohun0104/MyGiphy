@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="android.content.res.Resources" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_trend_parent"
         android:layout_width="match_parent"
@@ -39,6 +44,7 @@
             android:layout_marginEnd="@dimen/guild_line_18dp"
             android:layout_marginRight="@dimen/guild_line_18dp"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
             android:src="@drawable/ic_favorite_red_24dp"
             app:layout_constraintBottom_toBottomOf="@id/iv_trend_logo"
             app:layout_constraintRight_toRightOf="parent"
@@ -64,8 +70,8 @@
                 android:paddingLeft="@dimen/guild_line_18dp"
                 android:text="@string/search_gif"
                 android:textColor="@color/colorTextGrey"
-                tools:ignore="RtlSymmetry"
-                android:textSize="@dimen/size_text_small_12sp"/>
+                android:textSize="@dimen/size_text_small_12sp"
+                tools:ignore="RtlSymmetry" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="36dp"

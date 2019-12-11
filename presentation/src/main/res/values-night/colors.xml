@@ -4,4 +4,10 @@
     <color name="colorPrimaryDark">#000000</color>
 
     <color name="colorBlackWhite">#ffffff</color>
+
+    <color name="colorPurple">#8E24AA</color>
+    <color name="colorBlue">#1E88E5</color>
+    <color name="colorOrange">#FB8C00</color>
+    <color name="colorGreen">#43A047</color>
+    <color name="colorRed">#E53935</color>
 </resources>

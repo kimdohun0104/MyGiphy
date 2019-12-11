@@ -18,16 +18,13 @@ interface GifDao {
     fun getGifList(offset: Int): List<GifRoomEntity>?
 
     @Query("SELECT isFavorite FROM GifRoomEntity WHERE id = :gifId")
-    fun isFavoriteGifLiveData(gifId: String): LiveData<Boolean>
+    fun isFavoriteGif(gifId: String): LiveData<Boolean>
 
     @Query("UPDATE GifRoomEntity SET isFavorite = :isFavorite WHERE id = :gifId")
     fun setFavorite(gifId: String, isFavorite: Boolean): Completable
 
     @Query("SELECT * FROM GifRoomEntity WHERE isFavorite = 1")
     fun getFavoriteGifList(): LiveData<List<GifRoomEntity>>
-
-    @Query("SELECT isFavorite FROM GifRoomEntity WHERE id = :gifId")
-    fun isFavoriteGif(gifId: String): Boolean
 
     @Query("SELECT * FROM GifRoomEntity WHERE slug LIKE '%' || :q || '%' LIMIT 25 OFFSET :offset")
     fun searchGifList(offset: Int, q: String): List<GifRoomEntity>?

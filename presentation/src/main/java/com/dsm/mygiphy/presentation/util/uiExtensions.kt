@@ -4,6 +4,8 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.view.View
 import android.widget.EditText
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.dsm.mygiphy.R
 import com.google.android.material.snackbar.Snackbar
 
@@ -20,5 +22,7 @@ fun EditText.setEditorActionListener(action: Int, callback: () -> Unit) =
         false
     }
 
-fun getSpanCountWithOrientation() =
-    if (Resources.getSystem().configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 2 else 4
+fun RecyclerView.setStaggeredGridSpanCount() {
+    (this.layoutManager as StaggeredGridLayoutManager).spanCount =
+        if (Resources.getSystem().configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 2 else 4
+}

@@ -2,6 +2,7 @@
 <layout>
 
     <data>
+
         <variable
             name="viewModel"
             type="com.dsm.mygiphy.presentation.ui.favorite.FavoriteViewModel" />
@@ -22,6 +23,7 @@
             android:layout_marginLeft="@dimen/guild_line_18dp"
             android:layout_marginTop="@dimen/guild_line_18dp"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
             android:src="@drawable/ic_arrow_back_blue_24dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

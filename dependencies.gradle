@@ -14,6 +14,10 @@ ext {
     ankoVersion = '0.10.8'
     materialVersion = '1.1.0-beta02'
 
+    // testing
+    junitVersion = '4.12'
+    mockitoCoreVersion = '1.10.19'
+
     presentationDependencies = [
             appcompat: "androidx.appcompat:appcompat:$androidxVersion",
             coreKtx: "androidx.core:core-ktx:$androidxVersion",
@@ -53,5 +57,10 @@ ext {
     domainDependencies = [
             rxJava: "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
             retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    ]
+
+    domainTestDependencies = [
+            junit: "junit:junit:$junitVersion",
+            mockito: "org.mockito:mockito-core:$mockitoCoreVersion"
     ]
 }

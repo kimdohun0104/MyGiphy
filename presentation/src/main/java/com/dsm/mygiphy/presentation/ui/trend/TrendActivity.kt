@@ -2,7 +2,6 @@ package com.dsm.mygiphy.presentation.ui.trend
 
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.dsm.mygiphy.R
 import com.dsm.mygiphy.databinding.ActivityTrendBinding
 import com.dsm.mygiphy.presentation.base.BaseActivity
@@ -10,10 +9,9 @@ import com.dsm.mygiphy.presentation.paging.NetworkState
 import com.dsm.mygiphy.presentation.ui.adapter.GifListAdapter
 import com.dsm.mygiphy.presentation.ui.favorite.FavoriteActivity
 import com.dsm.mygiphy.presentation.ui.search.SearchActivity
-import com.dsm.mygiphy.presentation.util.getSpanCountWithOrientation
 import com.dsm.mygiphy.presentation.util.retrySnackbar
+import com.dsm.mygiphy.presentation.util.setStaggeredGridSpanCount
 import kotlinx.android.synthetic.main.activity_trend.*
-import org.jetbrains.anko.displayMetrics
 import org.jetbrains.anko.startActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -24,9 +22,7 @@ class TrendActivity : BaseActivity<ActivityTrendBinding>() {
 
     private val viewModel: TrendViewModel by viewModel()
 
-    private val adapter: GifListAdapter by lazy {
-        GifListAdapter(displayMetrics.widthPixels / getSpanCountWithOrientation() / 200.0)
-    }
+    private val adapter: GifListAdapter by lazy { GifListAdapter() }
 
     override fun viewInit() {
         ib_trend_favorite.setOnClickListener { startActivity<FavoriteActivity>() }
@@ -34,7 +30,7 @@ class TrendActivity : BaseActivity<ActivityTrendBinding>() {
         ll_trend_search.setOnClickListener { startActivity<SearchActivity>() }
 
         rv_trend.adapter = adapter
-        (rv_trend.layoutManager as StaggeredGridLayoutManager).spanCount = getSpanCountWithOrientation()
+        rv_trend.setStaggeredGridSpanCount()
     }
 
     override fun observeViewModel() {

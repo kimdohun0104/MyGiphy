@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import androidx.core.view.updateLayoutParams
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -13,12 +14,11 @@ import com.dsm.mygiphy.databinding.ItemGifBinding
 import com.dsm.mygiphy.presentation.model.GifModel
 import com.dsm.mygiphy.presentation.paging.NetworkState
 import com.dsm.mygiphy.presentation.ui.detail.DetailActivity
+import com.dsm.mygiphy.presentation.util.DimensionUtil
 import org.jetbrains.anko.startActivity
 import java.util.*
 
-class GifListAdapter(
-    private val increase: Double
-) : PagedListAdapter<GifModel, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
+class GifListAdapter : PagedListAdapter<GifModel, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
 
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<GifModel>() {
@@ -72,16 +72,19 @@ class GifListAdapter(
 
     inner class TrendHolder(private val binding: ItemGifBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: GifModel?) {
-            binding.run {
-                item?.let {
-                    gifModel = item
-                    root.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, (item.height * increase).toInt())
-                    root.setOnClickListener {
-                        root.context.startActivity<DetailActivity>(
-                            "gif_list" to ArrayList<GifModel>().apply { addAll(currentList?.snapshot()!!.asIterable()) },
-                            "position" to adapterPosition
-                        )
-                    }
+            item?.let {
+                binding.gifModel = it
+
+                binding.root.updateLayoutParams {
+                    width = MATCH_PARENT
+                    height = DimensionUtil.getHeightByRatioWithSpan(it.height)
+                }
+
+                binding.root.setOnClickListener { root ->
+                    root.context.startActivity<DetailActivity>(
+                        "gif_list" to ArrayList<GifModel>().apply { addAll(currentList?.snapshot()!!.asIterable()) },
+                        "position" to adapterPosition
+                    )
                 }
             }
         }

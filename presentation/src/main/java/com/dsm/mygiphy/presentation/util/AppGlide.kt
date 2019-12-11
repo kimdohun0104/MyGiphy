@@ -9,6 +9,7 @@ import com.dsm.mygiphy.R
 
 @GlideModule
 class AppGlide : AppGlideModule() {
+
     override fun applyOptions(context: Context, builder: GlideBuilder) {
         builder.setDefaultRequestOptions(
             RequestOptions().apply {
