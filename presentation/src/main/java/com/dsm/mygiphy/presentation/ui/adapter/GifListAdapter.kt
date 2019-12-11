@@ -14,6 +14,7 @@ import com.dsm.mygiphy.presentation.model.GifModel
 import com.dsm.mygiphy.presentation.paging.NetworkState
 import com.dsm.mygiphy.presentation.ui.detail.DetailActivity
 import org.jetbrains.anko.startActivity
+import java.util.*
 
 class GifListAdapter(
     private val increase: Double
@@ -75,7 +76,12 @@ class GifListAdapter(
                 item?.let {
                     gifModel = item
                     root.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, (item.height * increase).toInt())
-                    root.setOnClickListener { it.context.startActivity<DetailActivity>("gif_model" to item) }
+                    root.setOnClickListener {
+                        root.context.startActivity<DetailActivity>(
+                            "gif_list" to ArrayList<GifModel>().apply { addAll(currentList?.snapshot()!!.asIterable()) },
+                            "position" to adapterPosition
+                        )
+                    }
                 }
             }
         }

@@ -9,7 +9,7 @@ object BindingUtil {
     @BindingAdapter("gifUrl")
     fun bindGifUrl(view: ImageView, gifUrl: String?) {
         gifUrl?.let {
-            GlideApp.with(view).load(it).into(view)
+            GlideApp.with(view).load(it).centerCrop().into(view)
         }
     }
 
