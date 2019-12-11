@@ -169,7 +169,7 @@ Res 네이밍 규칙은 [[Android] Resources Naming Rule](https://b.jy.is/androi
 
 ### 최종 결과 스크린샷
 
-![스크린샷](https://user-images.githubusercontent.com/36754680/70515261-67387480-1b78-11ea-90ca-bf6f4689bfbd.png)
+![스크린샷](https://user-images.githubusercontent.com/36754680/70628251-2e2cfc80-1c6b-11ea-9b44-1559385e5905.png)
 
 <br>
 
@@ -182,7 +182,7 @@ Res 네이밍 규칙은 [[Android] Resources Naming Rule](https://b.jy.is/androi
     그 외에 map, flatMap 등 스트림을 가공할 수 있는 다양한 기능을 제공하여 데이터 처리에 유용합니다. 
     
     그래서 MyGIPHY는 모든 API 호출의 응답을 RxJava의 Flowable로 처리합니다. 여기서 Observable대신 Flowable을 
-    사용한 이유는 Backpressure라는 버퍼때문입니다. Backpressure Buffer는 데이터가 한 ㅇ번에 떠밀려와 
+    사용한 이유는 Backpressure라는 버퍼때문입니다. Backpressure Buffer는 데이터가 한 번에 떠밀려와 
     성능에 영향을 주거나 OutOfMemory를 발생시키지 않도록 예방할 수 있습니다.
 
 <br>    
