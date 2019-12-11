@@ -17,30 +17,29 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_search
 
-    private val adapter: SearchHistoryListAdapter by lazy { SearchHistoryListAdapter() }
-
     private val viewModel: SearchViewModel by viewModel()
 
+    private val adapter: SearchHistoryListAdapter by lazy { SearchHistoryListAdapter(viewModel) }
+
     override fun viewInit() {
+        et_search.requestFocus()
+        et_search.setEditorActionListener(EditorInfo.IME_ACTION_SEARCH) { startSearchResultActivity() }
+
         ib_search_back.setOnClickListener { finish() }
 
         rv_search_history.adapter = adapter
 
         ib_search.setOnClickListener { startSearchResultActivity() }
-
-        et_search.setEditorActionListener(EditorInfo.IME_ACTION_SEARCH) { startSearchResultActivity() }
-
-        viewModel.getSearchHistory()
     }
 
     override fun observeViewModel() {
-        viewModel.historyItems.observe(this, Observer { adapter.addItems(it) })
+        viewModel.getSearchHistory().observe(this, Observer { adapter.setItems(it) })
     }
 
     private fun startSearchResultActivity() {
         et_search.text.toString().trim().let {
             if (it.isNotBlank()) {
-                startActivity<SearchResultActivity>("search" to et_search.text.toString().trim())
+                startActivity<SearchResultActivity>("search" to it)
                 finish()
             }
         }

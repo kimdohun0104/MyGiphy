@@ -4,6 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.dsm.data.local.dao.GifDao
+import com.dsm.data.local.dao.SearchHistoryDao
 import com.dsm.data.local.entity.GifRoomEntity
 import com.dsm.data.local.entity.SearchHistoryRoomEntity
 
@@ -17,4 +18,6 @@ import com.dsm.data.local.entity.SearchHistoryRoomEntity
 abstract class AppDataBase : RoomDatabase() {
 
     abstract fun gifDao(): GifDao
+
+    abstract fun searchHistoryDao(): SearchHistoryDao
 }

@@ -1,16 +1,17 @@
 package com.dsm.mygiphy.presentation.ui.search
 
-import androidx.lifecycle.MutableLiveData
-import com.dsm.data.local.dao.GifDao
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
+import com.dsm.data.local.dao.SearchHistoryDao
 import com.dsm.mygiphy.presentation.base.BaseViewModel
 
 class SearchViewModel(
-    private val gifDao: GifDao
+    private val searchHistoryDao: SearchHistoryDao
 ) : BaseViewModel() {
 
-    val historyItems = MutableLiveData<List<String>>()
+    fun getSearchHistory(): LiveData<List<String>> =
+        Transformations.map(searchHistoryDao.getSearchHistoryList()) { it.map { item -> item.search }.reversed() }
 
-    fun getSearchHistory() {
-        historyItems.value = gifDao.getSearchHistoryList().map { it.search }
-    }
+    fun deleteSearchHistory(value: String) =
+        addDisposable(searchHistoryDao.deleteSearchHistory(value).subscribe())
 }

@@ -12,11 +12,11 @@ class TrendRepositoryImpl(
     private val gifEntityMapper: GifEntityMapper
 ) : TrendRepository {
 
-    override fun getRemoteTrendList(page: Int): Flowable<List<GifEntity>> =
-        dataSource.getRemoteTrendList(page).map { data -> data.gifList.map { gifEntityMapper.mapFrom(it) } }
+    override fun getRemoteTrendList(offset: Int): Flowable<List<GifEntity>> =
+        dataSource.getRemoteTrendList(offset).map { data -> data.gifList.map { gifEntityMapper.mapFrom(it) } }
 
-    override fun getLocalTrendList(page: Int): List<GifEntity>? =
-        dataSource.getLocalTrendList(page)?.map(gifEntityMapper::roomToEntity)
+    override fun getLocalTrendList(offset: Int): List<GifEntity>? =
+        dataSource.getLocalTrendList(offset)?.map(gifEntityMapper::roomToEntity)
 
     override fun saveLocalGifList(gifEntityList: List<GifEntity>): Completable =
         dataSource.saveLocalGifList(gifEntityList.map { entity -> gifEntityMapper.entityToRoom(entity) })

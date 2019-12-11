@@ -75,9 +75,10 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ll_search"
             android:layout_marginStart="@dimen/guild_line_18dp"
-            android:layout_marginEnd="@dimen/guild_line_18dp"
+            android:layout_marginLeft="@dimen/guild_line_18dp"
             android:layout_marginTop="12dp"
             android:textSize="@dimen/size_text_small_12sp"
+            android:textStyle="bold"
             android:textColor="@color/colorBlackWhite"
             android:text="@string/search_history"/>
 

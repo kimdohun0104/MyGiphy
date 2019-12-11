@@ -1,5 +1,7 @@
 package com.dsm.mygiphy.presentation.util
 
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.view.View
 import android.widget.EditText
 import com.dsm.mygiphy.R
@@ -17,3 +19,6 @@ fun EditText.setEditorActionListener(action: Int, callback: () -> Unit) =
         }
         false
     }
+
+fun getSpanCountWithOrientation() =
+    if (Resources.getSystem().configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 2 else 4

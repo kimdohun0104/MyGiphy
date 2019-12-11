@@ -1,4 +1,4 @@
-package com.dsm.dsmmarketandroid.presentation.util
+package com.dsm.mygiphy.presentation.base
 
 import android.util.Log
 import androidx.annotation.MainThread

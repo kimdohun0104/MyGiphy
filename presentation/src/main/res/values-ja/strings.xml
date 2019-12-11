@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="retry">再試行</string>
+	<string name="gif">GIF</string>
+
+	<!--fail message-->
+	<string name="fail_internal">ネットワークの状態を確認してください</string>
+	<string name="fail_not_found">GIFを見つけることができませんでした</string>
+
+	<!--feature:trend-->
+	<string name="trend_gif">現在人気のGIF</string>
+
+	<!--feature:favorite-->
+	<string name="favorite_gif">関心GIF</string>
+	<string name="set_favorite">関心GIF登録！</string>
+	<string name="set_unfavorite">関心GIF解除…</string>
+
+	<!--feature:search-->
+	<string name="search_gif">GIF検索</string>
+	<string name="search">検索</string>
+	<string name="search_history">検索履歴</string>
+</resources>

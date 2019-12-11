@@ -8,12 +8,12 @@
         android:name=".presentation.BaseApp"
         android:allowBackup="true"
         android:fullBackupContent="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.ui.search.searchResult.SearchResultActivity"></activity>
+        <activity android:name=".presentation.ui.search.searchResult.SearchResultActivity" />
         <activity android:name=".presentation.ui.search.SearchActivity" />
         <activity android:name=".presentation.ui.favorite.FavoriteActivity" />
         <activity android:name=".presentation.ui.detail.DetailActivity" />

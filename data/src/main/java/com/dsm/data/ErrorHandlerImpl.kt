@@ -1,5 +1,6 @@
-package com.dsm.domain.error
+package com.dsm.data
 
+import com.dsm.domain.error.ErrorHandler
 import com.dsm.domain.error.exception.BadRequestException
 import com.dsm.domain.error.exception.ForbiddenException
 import com.dsm.domain.error.exception.InternalException
