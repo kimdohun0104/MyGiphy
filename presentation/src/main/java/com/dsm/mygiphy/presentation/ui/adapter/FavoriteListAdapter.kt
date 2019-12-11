@@ -34,7 +34,7 @@ class FavoriteListAdapter(
             binding.run {
                 gifModel = item
                 root.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, (item.height * increase).toInt())
-                root.setOnClickListener { it.context.startActivity<DetailActivity>("gif_model" to item) }
+                root.setOnClickListener { it.context.startActivity<DetailActivity>("gif_list" to gifItems, "position" to adapterPosition) }
             }
         }
     }

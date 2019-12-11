@@ -33,7 +33,6 @@ android {
 
 dependencies {
     def dependencies = rootProject.ext.presentationDependencies
-    def testDependencies = rootProject.ext.presentationTestDependencies
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':data')
@@ -84,12 +83,4 @@ dependencies {
 
     // anko
     implementation dependencies.anko
-
-    // testing
-    testImplementation testDependencies.junit
-    androidTestImplementation testDependencies.junitExt
-    androidTestImplementation testDependencies.mockitoAndroid
-    testImplementation testDependencies.coreTesting
-    testImplementation testDependencies.liveDataTesting
-    testImplementation testDependencies.mockitoInline
 }
