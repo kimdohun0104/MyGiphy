@@ -184,6 +184,12 @@ Res 네이밍 규칙은 [[Android] Resources Naming Rule](https://b.jy.is/androi
     그래서 MyGIPHY는 모든 API 호출의 응답을 RxJava의 Flowable로 처리합니다. 여기서 Observable대신 Flowable을 
     사용한 이유는 Backpressure라는 버퍼때문입니다. Backpressure Buffer는 데이터가 한 번에 떠밀려와 
     성능에 영향을 주거나 OutOfMemory를 발생시키지 않도록 예방할 수 있습니다.
+    
+    (사실 Backpressure buffer가 필요한 경우는 100, 1000개가 넘는 데이터 흐름을 소비할 수 없을 때입니다. 그런데 사실 Retrofit을 
+    사용할 땐 하나의 데이터를 처리합니다. 그래서 Backpressure buffer는 사실상 필요 없는 존재입니다. 그래서 Single을 사용해 OnSuccess와
+    onError를 구현함으로써 더 명확하고 효율적인 프로그램을 짤 수 있을 것입니다. RxJava를 처음 도입할 때 Observable과 Flowable의 차이를
+    살펴보다 Backpressure buffer를 알게 되었고 그냥 무작정 '이런 게 있으니깐 더 좋겠지?'라는 생각으로 쭉 Flowable을 사용해 왔습니다.
+    '대충 아는 것이 모르는 것만도 못하다'의 예시 중 하나였던 것 같습니다. 그래도 이번 기회에 개념을 바로 잡을 수 있어서 다행입니다.)
 
 <br>    
     
